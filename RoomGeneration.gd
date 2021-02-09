@@ -9,7 +9,6 @@ const ROOM_HEIGHT = 12
 const ROOM_WIDTH_PX = ROOM_WIDTH*CELL_SIZE
 const ROOM_HEIGHT_PX = ROOM_HEIGHT*CELL_SIZE
 const EXPLORE_SIZE = 1
-const FORGET_SIZE = 2
 
 var Rooms : PackedScene = preload("res://Rooms.tscn")
 
@@ -18,6 +17,7 @@ var _current_rooms := {}
 var _room_options := []
 var _room_with_player = Vector2.ZERO
 var _rng := RandomNumberGenerator.new()
+var forget_size = 2
 var generator_ready = false
 
 onready var branch_for_mambers = $BranchForMembers
@@ -43,7 +43,7 @@ func _update_map():
 			if not _current_rooms.has(Vector2(x, y)):
 				_add_room(Vector2(x, y), _find_room(Vector2(x, y)))
 	for old_room in _current_rooms.values():
-		if old_room.room_position.x < _room_with_player.x-FORGET_SIZE or old_room.room_position.x > _room_with_player.x+FORGET_SIZE or old_room.room_position.y < _room_with_player.y-FORGET_SIZE or old_room.room_position.y > _room_with_player.y+FORGET_SIZE:
+		if old_room.room_position.x < _room_with_player.x-forget_size or old_room.room_position.x > _room_with_player.x+forget_size or old_room.room_position.y < _room_with_player.y-forget_size or old_room.room_position.y > _room_with_player.y+forget_size:
 			if not old_room.permanent:
 				_current_rooms.erase(old_room.room_position.round())
 				old_room.remove_room()
@@ -55,9 +55,8 @@ func _find_room(new_position: Vector2) -> Node:
 	#Fill the array with rooms
 	for object in _rooms.get_children():
 		_room_options.append(object)
-			
 	#Loop through all 4 directions
-	for dir in range(0, SOUTH + 1):
+	for dir in range(0, 4):
 		#Check if there is a room at this location
 		if _current_rooms.has(new_position + DIRECTION[dir].round()):
 			#Assigns for the inverse direction
@@ -66,13 +65,13 @@ func _find_room(new_position: Vector2) -> Node:
 			var current_room = _current_rooms[new_position + DIRECTION[dir].round()]
 			
 			#Scan through all rooms remaining in the array
-			for o in _room_options:
+			for i in range(_room_options.size() -1, -1, -1):
 				#If the room doesn't contain a matching node...
-				if not o.available_nodes[dir] == current_room.available_nodes[check_dir]:
+				if not _room_options[i].available_nodes[dir] == current_room.available_nodes[check_dir]:
 					#...Remove it from the array
-					_room_options.erase(o)
+					_room_options.erase(_room_options[i])
 	#Return a random room from whats left in the array
-	return _room_options[_rng.randi_range(0, _room_options.size()-1)]
+	return _room_options[_rng.randi_range(0, _room_options.size() - 1)]
 
 
 func _add_room(room_position: Vector2, to_copy:Node):
