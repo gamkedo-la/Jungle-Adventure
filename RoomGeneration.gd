@@ -20,7 +20,7 @@ var _rng := RandomNumberGenerator.new()
 var forget_size = 2
 var generator_ready = false
 
-onready var branch_for_mambers = $BranchForMembers
+onready var branch_for_members = $BranchForMembers
 onready var branch_for_rooms = $BranchForRooms
 
 func _ready():
@@ -83,6 +83,7 @@ func _add_room(room_position: Vector2, to_copy:Node):
 	
 	_current_rooms[room_position.round()] = new_room
 	branch_for_rooms.call_deferred("add_child", new_room)
+	new_room.call_deferred("add_room", _rng, branch_for_members)
 
 
 func _scan_for_rooms():

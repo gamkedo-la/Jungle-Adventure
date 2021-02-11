@@ -395,6 +395,7 @@ parameters/Strike/blend_position = Vector2( 0, 1 )
 [node name="Position2D" type="Position2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="Position2D"]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/Area2D"]
 position = Vector2( 3.8147e-06, 58 )
