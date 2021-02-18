@@ -38,15 +38,16 @@ func player_here(player_position:Vector2):
 
 
 func _update_map():
-	for x in range(_room_with_player.x-EXPLORE_SIZE, _room_with_player.x+EXPLORE_SIZE+1):
-		for y in range(_room_with_player.y-EXPLORE_SIZE, _room_with_player.y+EXPLORE_SIZE+1):
-			if not _current_rooms.has(Vector2(x, y)):
-				_add_room(Vector2(x, y), _find_room(Vector2(x, y)))
 	for old_room in _current_rooms.values():
 		if old_room.room_position.x < _room_with_player.x-forget_size or old_room.room_position.x > _room_with_player.x+forget_size or old_room.room_position.y < _room_with_player.y-forget_size or old_room.room_position.y > _room_with_player.y+forget_size:
 			if not old_room.permanent:
 				_current_rooms.erase(old_room.room_position.round())
 				old_room.remove_room()
+	for x in range(_room_with_player.x-EXPLORE_SIZE, _room_with_player.x+EXPLORE_SIZE+1):
+		for y in range(_room_with_player.y-EXPLORE_SIZE, _room_with_player.y+EXPLORE_SIZE+1):
+			if not _current_rooms.has(Vector2(x, y)):
+				_add_room(Vector2(x, y), _find_room(Vector2(x, y)))
+				yield(get_tree(), "physics_frame")
 
 
 func _find_room(new_position: Vector2) -> Node:
