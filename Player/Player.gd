@@ -5,10 +5,9 @@ enum {
 	STRIKE
 }
 
-export var ACCELERATION = 1000
-export var MAX_SPEED = 500
-export var ROLL_SPEED = 120
-export var FRICTION = 1500
+export var ACCELERATION = 500
+export var MAX_SPEED = 250
+export var FRICTION = 1000
 
 var state = MOVE
 var velocity = Vector2.ZERO

@@ -28,7 +28,6 @@ func _ready():
 	_rooms = Rooms.instance()
 	_scan_for_rooms()
 	generator_ready = true
-	_update_map()
 
 
 func player_here(player_position:Vector2):
@@ -38,16 +37,16 @@ func player_here(player_position:Vector2):
 
 
 func _update_map():
-	for old_room in _current_rooms.values():
-		if old_room.room_position.x < _room_with_player.x-forget_size or old_room.room_position.x > _room_with_player.x+forget_size or old_room.room_position.y < _room_with_player.y-forget_size or old_room.room_position.y > _room_with_player.y+forget_size:
-			if not old_room.permanent:
-				_current_rooms.erase(old_room.room_position.round())
-				old_room.remove_room()
 	for x in range(_room_with_player.x-EXPLORE_SIZE, _room_with_player.x+EXPLORE_SIZE+1):
 		for y in range(_room_with_player.y-EXPLORE_SIZE, _room_with_player.y+EXPLORE_SIZE+1):
 			if not _current_rooms.has(Vector2(x, y)):
 				_add_room(Vector2(x, y), _find_room(Vector2(x, y)))
 				yield(get_tree(), "physics_frame")
+	for old_room in _current_rooms.values():
+		if old_room.room_position.x < _room_with_player.x-forget_size or old_room.room_position.x > _room_with_player.x+forget_size or old_room.room_position.y < _room_with_player.y-forget_size or old_room.room_position.y > _room_with_player.y+forget_size:
+			if not old_room.permanent:
+				_current_rooms.erase(old_room.room_position.round())
+				old_room.remove_room()
 
 
 func _find_room(new_position: Vector2) -> Node:
@@ -90,7 +89,7 @@ func _add_room(room_position: Vector2, to_copy:Node):
 func _scan_for_rooms():
 	if branch_for_rooms.get_child_count() > 0:
 		for child in branch_for_rooms.get_children():
-			var new_position = Vector2(floor(child.position.x/ROOM_WIDTH), ceil(child.position.y/ROOM_HEIGHT))
+			var new_position = Vector2(floor(child.position.x/ROOM_WIDTH_PX), ceil(child.position.y/ROOM_HEIGHT_PX))
 			child.room_position = new_position
 			_current_rooms[new_position] = child
 			child.connect("player_present", self, "player_here")
