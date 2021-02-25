@@ -32,7 +32,7 @@ func add_room(rng, branch_for_members):
 		var x = rng.randi_range(0, ROOM_WIDTH)
 		var y = rng.randi_range(0, ROOM_HEIGHT)
 		#if tileMap.get_cellv(Vector2(x, y)) == 1 and not _members.has(Vector2(x, y).round()):
-		if not _members.has(Vector2(x, y).round()):
+		if not _members.has(Vector2(x, y).round()) and trees.size() > 0:
 			var new_tree = trees[rng.randi_range(0, trees.size()-1)].instance()
 			_members[Vector2(x, y).round()] = new_tree
 			new_tree.position += position + Vector2(x, y) * CELL_SIZE + (Vector2(CELL_SIZE, CELL_SIZE) * rng.randf())

@@ -9,16 +9,19 @@ const ROOM_HEIGHT = 12
 const ROOM_WIDTH_PX = ROOM_WIDTH*CELL_SIZE
 const ROOM_HEIGHT_PX = ROOM_HEIGHT*CELL_SIZE
 const EXPLORE_SIZE = 1
+const FORGET_SIZE = 2
 
 var Rooms : PackedScene = preload("res://Rooms.tscn")
+var Landmarks : PackedScene = preload("res://Landmarks.tscn")
 
 var _rooms: Node2D = null
+var _landmarks: Node2D = null
+var _landmark_index = 0
 var _current_rooms := {}
 var _room_options := []
 var _room_with_player = Vector2.ZERO
+var _current_landmark = Vector2.INF
 var _rng := RandomNumberGenerator.new()
-var forget_size = 2
-var generator_ready = false
 
 onready var branch_for_members = $BranchForMembers
 onready var branch_for_rooms = $BranchForRooms
@@ -26,14 +29,16 @@ onready var branch_for_rooms = $BranchForRooms
 func _ready():
 	_rng.randomize()
 	_rooms = Rooms.instance()
+	_landmarks = Landmarks.instance()
 	_scan_for_rooms()
-	generator_ready = true
+	_place_landmark()
 
 
 func player_here(player_position:Vector2):
 	_room_with_player = player_position
-	if generator_ready:
-		_update_map()
+	if _room_with_player.round() == _current_landmark.round():
+		_place_landmark()
+	_update_map()
 
 
 func _update_map():
@@ -43,7 +48,7 @@ func _update_map():
 				_add_room(Vector2(x, y), _find_room(Vector2(x, y)))
 				yield(get_tree(), "physics_frame")
 	for old_room in _current_rooms.values():
-		if old_room.room_position.x < _room_with_player.x-forget_size or old_room.room_position.x > _room_with_player.x+forget_size or old_room.room_position.y < _room_with_player.y-forget_size or old_room.room_position.y > _room_with_player.y+forget_size:
+		if old_room.room_position.x < _room_with_player.x-FORGET_SIZE or old_room.room_position.x > _room_with_player.x+FORGET_SIZE or old_room.room_position.y < _room_with_player.y-FORGET_SIZE or old_room.room_position.y > _room_with_player.y+FORGET_SIZE:
 			if not old_room.permanent:
 				_current_rooms.erase(old_room.room_position.round())
 				old_room.remove_room()
@@ -73,6 +78,23 @@ func _find_room(new_position: Vector2) -> Node:
 	#Return a random room from whats left in the array
 	return _room_options[_rng.randi_range(0, _room_options.size() - 1)]
 
+
+func _place_landmark():
+	var x = _rng.randi_range(2,3)
+	if (_rng.randf() < 0.5):
+		x = x * -1
+	var y = _rng.randi_range(2,3)
+	if (_rng.randf() < 0.5):
+		y = y * -1
+	var _landmark_location = Vector2(x, y) + _room_with_player
+	if not _current_rooms.has(_landmark_location):
+		_add_room(_landmark_location, _landmarks.get_child(_landmark_index))
+		_landmark_index = _landmark_index + 1
+		_current_landmark = _landmark_location
+		if _landmark_index >= _landmarks.get_child_count():
+			_landmark_index = 0
+	else:
+		_place_landmark()
 
 func _add_room(room_position: Vector2, to_copy:Node):
 	var world_offset := _grid_to_world(room_position.round())
