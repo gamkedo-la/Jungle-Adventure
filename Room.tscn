@@ -23,4 +23,6 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 576, 384 )
 shape = SubResource( 1 )
+
+[node name="ForMemberBranch" type="Node2D" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_Room_body_entered"]

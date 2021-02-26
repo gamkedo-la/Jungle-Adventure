@@ -25,9 +25,18 @@ var room_position = Vector2.ZERO
 var _members = {}
 
 onready var tileMap = $TileMap
+onready var forMemberBranch = $ForMemberBranch
 
 
 func add_room(rng, branch_for_members):
+	for new_member in forMemberBranch.get_children():
+		forMemberBranch.remove_child(new_member)
+		branch_for_members.add_child(new_member)
+		var x = new_member.position.x/CELL_SIZE
+		var y = new_member.position.y/CELL_SIZE
+		_members[Vector2(x, y).round()] = new_member
+		new_member.position += position
+	forMemberBranch.queue_free()
 	for _i in range(0, TREE_FREQUENCY):
 		var x = rng.randi_range(0, ROOM_WIDTH)
 		var y = rng.randi_range(0, ROOM_HEIGHT)
