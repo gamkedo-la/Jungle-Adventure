@@ -115,6 +115,7 @@ func _scan_for_rooms():
 			child.room_position = new_position
 			_current_rooms[new_position] = child
 			child.connect("player_present", self, "player_here")
+			child.call_deferred("find_this_room", branch_for_members)
 
 
 func _grid_to_world(vector: Vector2) -> Vector2:

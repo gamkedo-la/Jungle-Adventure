@@ -120,7 +120,6 @@ position = Vector2( 1039.75, 123.817 )
 position = Vector2( 1049.27, 679.407 )
 
 [node name="1" parent="." instance=ExtResource( 1 )]
-visible = false
 permanent = true
 available_nodes = {
 0: 0,
