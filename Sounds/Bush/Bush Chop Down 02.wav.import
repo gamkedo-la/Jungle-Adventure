@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bush Chop Down 02.wav-824e35567d2dd116a6c2a361d454c5e6.sample"
+
+[deps]
+
+source_file="res://Sounds/Bush/Bush Chop Down 02.wav"
+dest_files=[ "res://.import/Bush Chop Down 02.wav-824e35567d2dd116a6c2a361d454c5e6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

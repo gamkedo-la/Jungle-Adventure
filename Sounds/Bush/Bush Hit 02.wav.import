@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bush Hit 02.wav-a6476b9e4b47147eed998f0331e63d69.sample"
+
+[deps]
+
+source_file="res://Sounds/Bush/Bush Hit 02.wav"
+dest_files=[ "res://.import/Bush Hit 02.wav-a6476b9e4b47147eed998f0331e63d69.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
