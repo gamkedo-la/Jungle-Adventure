@@ -6,11 +6,16 @@ enum { WEST, NORTH, EAST, SOUTH }
 
 const DIRECTION = [Vector2.LEFT, Vector2.UP, Vector2.RIGHT, Vector2.DOWN]
 const TREE_FREQUENCY = 50
+const MAX_ANIMALS := 5
+const ANIMAL_SPAWN_CHANCE := 0.5
+const ANIMAL_SPAWN_RADIUS := 25.0
 const CELL_SIZE = 64
 const ROOM_WIDTH = 18
 const ROOM_HEIGHT = 12
 const ROOM_WIDTH_PX = ROOM_WIDTH*CELL_SIZE
 const ROOM_HEIGHT_PX = ROOM_HEIGHT*CELL_SIZE
+
+const AnimalScene: PackedScene = preload("res://Wildlife/Animal.tscn")
 
 export var permanent = false;
 export var available_nodes = {
@@ -23,6 +28,7 @@ export (Array, PackedScene) var trees
 
 var room_position = Vector2.ZERO
 var _members = {}
+var _animal_members = []
 
 onready var tileMap = $TileMap
 onready var forMemberBranch = $ForMemberBranch
@@ -39,6 +45,16 @@ func add_room(rng, branch_for_members):
 			new_tree.position += position + Vector2(x, y) * CELL_SIZE + (Vector2(CELL_SIZE, CELL_SIZE) * rng.randf())
 			branch_for_members.call_deferred("add_child", new_tree)
 			yield(get_tree(), "physics_frame")
+	
+	
+	var animal_spawn_area = Vector2(rng.randi_range(0, ROOM_WIDTH), rng.randi_range(0, ROOM_HEIGHT))
+	for i in range(0, MAX_ANIMALS):
+		if randf() > ANIMAL_SPAWN_CHANCE:
+			var animal = AnimalScene.instance()
+			_animal_members.append(animal)
+			var random_offset = Vector2.RIGHT.rotated(deg2rad(randf() * 360.0)).normalized() * (randf() * ANIMAL_SPAWN_RADIUS)
+			animal.position = position + animal_spawn_area + random_offset
+			branch_for_members.call_deferred("add_child", animal)
 
 
 func find_this_room(branch_for_members):
@@ -57,6 +73,11 @@ func remove_room():
 		_members[i].queue_free()
 		yield(get_tree(), "physics_frame")
 	_members.clear()
+
+	for animal in _animal_members:
+		animal.room_removed()
+	_animal_members.clear()
+
 	queue_free()
 
 

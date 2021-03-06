@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Animal",
+"language": "GDScript",
+"path": "res://Wildlife/Animal.gd"
+} ]
 _global_script_class_icons={
-
+"Animal": ""
 }
 
 [application]
@@ -18,6 +23,10 @@ _global_script_class_icons={
 config/name="Jungle Adventure"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Utils="*res://Utils.gd"
 
 [debug]
 
@@ -78,6 +87,7 @@ action={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="HitBox"
 2d_physics/layer_4="StrikeBox"
+2d_physics/layer_5="Animals"
 
 [rendering]
 
