@@ -21,3 +21,13 @@ func _on_Area2D_area_entered(_area):
 	if hp <= 0:
 		animationPlayer.stop()
 		animationPlayer.play("Grow")
+
+
+func _on_RenderArea2D_body_entered(body):
+	if body.name == "Player" and body.position.y < self.position.y:
+		animationPlayer.play("Transparent")
+
+
+func _on_RenderArea2D_body_exited(body):
+	if body.name == "Player" and body.position.y < self.position.y:
+		animationPlayer.play("Opaque")
