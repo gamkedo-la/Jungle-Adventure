@@ -24,3 +24,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "Is tihs like a place to keep notes?"
+}
