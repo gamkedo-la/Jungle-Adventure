@@ -82,7 +82,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Opaque"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:self_modulate")
@@ -112,8 +112,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 96, 128 )
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 96, 99 )
 
 [node name="Temp-Tree" type="StaticBody2D"]
 script = ExtResource( 2 )
@@ -133,7 +133,7 @@ disabled = true
 autoplay = "Idle"
 anims/Grow = SubResource( 2 )
 anims/Idle = SubResource( 3 )
-anims/Opaque = SubResource( 6 )
+anims/Opaque = SubResource( 4 )
 anims/Transparent = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -144,11 +144,10 @@ collision_mask = 8
 shape = SubResource( 1 )
 
 [node name="RenderArea2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RenderArea2D"]
-position = Vector2( 8, -97 )
-shape = SubResource( 4 )
+position = Vector2( 8, -127 )
+shape = SubResource( 6 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="RenderArea2D" to="." method="_on_RenderArea2D_body_entered"]
 [connection signal="body_exited" from="RenderArea2D" to="." method="_on_RenderArea2D_body_exited"]

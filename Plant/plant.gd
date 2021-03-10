@@ -24,10 +24,10 @@ func _on_Area2D_area_entered(_area):
 
 
 func _on_RenderArea2D_body_entered(body):
-	if body.name == "Player" and body.position.y < self.position.y:
+	if body.name == "Player":
 		animationPlayer.play("Transparent")
 
 
 func _on_RenderArea2D_body_exited(body):
-	if body.name == "Player" and body.position.y < self.position.y:
+	if body.name == "Player":
 		animationPlayer.play("Opaque")
