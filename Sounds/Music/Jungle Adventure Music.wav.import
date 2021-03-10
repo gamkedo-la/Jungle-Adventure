@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Jungle Adventure Music.wav-f621f0e838cb6230b8bc77c681032377.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/Jungle Adventure Music.wav"
+dest_files=[ "res://.import/Jungle Adventure Music.wav-f621f0e838cb6230b8bc77c681032377.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

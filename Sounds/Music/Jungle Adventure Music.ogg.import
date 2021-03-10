@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Jungle Adventure Music.ogg-47956beb925bb5e46bc2d4cddb53f07e.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/Jungle Adventure Music.ogg"
+dest_files=[ "res://.import/Jungle Adventure Music.ogg-47956beb925bb5e46bc2d4cddb53f07e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
