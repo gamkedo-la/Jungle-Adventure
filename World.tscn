@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://RoomGeneration.gd" type="Script" id=1]
 [ext_resource path="res://Room.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Temp_tileset.png" type="Texture" id=4]
 [ext_resource path="res://Plant/Temp-Bush.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Plant/Temp-Tree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Compass/Compass.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -326,6 +327,12 @@ position = Vector2( 376, 776 )
 
 [node name="Player" parent="RoomGenerator/BranchForMembers" instance=ExtResource( 3 )]
 position = Vector2( 576, 384 )
+
+[node name="Compass" parent="." instance=ExtResource( 7 )]
+margin_left = 1075.11
+margin_top = 8.86011
+margin_right = 1129.11
+margin_bottom = 56.8601
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]
 
