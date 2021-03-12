@@ -80,7 +80,7 @@ func _find_room(new_position: Vector2) -> Node:
 	return _room_options[_rng.randi_range(0, _room_options.size() - 1)]
 
 
-func _place_landmark():
+func _place_landmark(runs = 3):
 	var x = _rng.randi_range(2,3)
 	if (_rng.randf() < 0.5):
 		x = x * -1
@@ -88,7 +88,11 @@ func _place_landmark():
 	if (_rng.randf() < 0.5):
 		y = y * -1
 	var _landmark_location = Vector2(x, y) + _room_with_player
-	if not _current_rooms.has(_landmark_location):
+	var has_permenant_neighbor = false
+	for dir in DIRECTION:
+		if _current_rooms.has(_landmark_location + dir):
+			has_permenant_neighbor = true
+	if not _current_rooms.has(_landmark_location) or not has_permenant_neighbor or runs <= 0:
 		_add_room(_landmark_location, _landmarks.get_child(_landmark_index))
 		_landmark_index = _landmark_index + 1
 		_current_landmark = _landmark_location
@@ -98,7 +102,7 @@ func _place_landmark():
 		var compass_y = y * ROOM_HEIGHT_PX + ROOM_HEIGHT_PX/2
 		compass.SetNorthPosition(Vector2(compass_x, compass_y))
 	else:
-		_place_landmark()
+		_place_landmark((runs - 1))
 
 func _add_room(room_position: Vector2, to_copy:Node):
 	var world_offset := _grid_to_world(room_position.round())

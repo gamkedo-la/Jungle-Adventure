@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Underwater New Location Music.ogg-cbfe662ad748c9b71e7b58e7e3b459c3.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/Underwater New Location Music.ogg"
+dest_files=[ "res://.import/Underwater New Location Music.ogg-cbfe662ad748c9b71e7b58e7e3b459c3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
