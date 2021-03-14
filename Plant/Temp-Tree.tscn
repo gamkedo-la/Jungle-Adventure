@@ -116,6 +116,7 @@ tracks/0/keys = {
 extents = Vector2( 96, 99 )
 
 [node name="Temp-Tree" type="StaticBody2D"]
+collision_layer = 33
 script = ExtResource( 2 )
 maxHP = 3
 
@@ -123,11 +124,9 @@ maxHP = 3
 position = Vector2( 8, -97 )
 texture = ExtResource( 1 )
 hframes = 6
-frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -137,6 +136,7 @@ anims/Opaque = SubResource( 4 )
 anims/Transparent = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -144,6 +144,7 @@ collision_mask = 8
 shape = SubResource( 1 )
 
 [node name="RenderArea2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RenderArea2D"]
 position = Vector2( 8, -127 )

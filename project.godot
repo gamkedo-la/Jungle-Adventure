@@ -88,6 +88,7 @@ action={
 2d_physics/layer_3="HitBox"
 2d_physics/layer_4="StrikeBox"
 2d_physics/layer_5="Animals"
+2d_physics/layer_6="Plants"
 
 [rendering]
 

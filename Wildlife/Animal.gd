@@ -8,10 +8,10 @@ enum {
 }
 
 onready var steering_controller = $SteeringController
-onready var animation_player = $AnimationPlayer
+onready var animation_tree = $AnimationTree
 
-var MAX_SPEED = 2.5
-var MIN_SPEED = 1.0
+var MAX_SPEED = 5.0
+var MIN_SPEED = 2.5
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
@@ -24,8 +24,8 @@ var should_free = false
 func _ready():
 	randomize()
 	velocity = Vector2(rand_range(-1.0, 1.0), rand_range(-1.0, 1.0)).normalized() * MAX_SPEED
-	# World, other fish
-	var mask_bit = 1 | (1 << 4)
+	# World, other animals
+	var mask_bit = 16 | 32
 	steering_controller.set_mask(mask_bit)
 
 func _process(delta):
@@ -34,13 +34,16 @@ func _process(delta):
 		velocity = velocity.normalized() * MIN_SPEED
 	elif abs(velocity.length()) > MAX_SPEED:
 		velocity = velocity.normalized() * MAX_SPEED
+	
+	animation_tree.set("parameters/blend_position", velocity.normalized())
+	
 	position += velocity
 	update()
 	
 
 func _draw():
 	if Utils.DRAW_DEBUG:
-		draw_line(Vector2.ZERO, (velocity * 10.0), Color.green)
+		draw_line(Vector2.ZERO, (velocity * 20.0), Color.green)
 
 func room_removed():
 	if on_screen == false:

@@ -113,6 +113,7 @@ tracks/1/keys = {
 radius = 29.0
 
 [node name="Temp-Bush" type="StaticBody2D"]
+collision_layer = 33
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
