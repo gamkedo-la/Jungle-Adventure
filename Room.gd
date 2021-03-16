@@ -8,7 +8,7 @@ const DIRECTION = [Vector2.LEFT, Vector2.UP, Vector2.RIGHT, Vector2.DOWN]
 const TREE_FREQUENCY = 50
 const MAX_ANIMALS := 5
 const ANIMAL_SPAWN_CHANCE := 0.5
-const ANIMAL_SPAWN_RADIUS := 25.0
+const ANIMAL_SPAWN_RADIUS := 100.0
 const CELL_SIZE = 64
 const ROOM_WIDTH = 18
 const ROOM_HEIGHT = 12
@@ -48,9 +48,11 @@ func add_room(rng, branch_for_members):
 	
 	
 	var animal_spawn_area = Vector2(rng.randi_range(0, ROOM_WIDTH), rng.randi_range(0, ROOM_HEIGHT))
-	for i in range(0, MAX_ANIMALS):
+	var animal_wander_time = randi() % 15 + 5
+	for _i in range(0, MAX_ANIMALS):
 		if randf() > ANIMAL_SPAWN_CHANCE:
 			var animal = AnimalScene.instance()
+			animal.init(global_position + animal_spawn_area, animal_wander_time)
 			_animal_members.append(animal)
 			var random_offset = Vector2.RIGHT.rotated(deg2rad(randf() * 360.0)).normalized() * (randf() * ANIMAL_SPAWN_RADIUS)
 			animal.position = position + animal_spawn_area + random_offset

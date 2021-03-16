@@ -9,6 +9,7 @@ var center_of_mass_strength = 0.0001
 
 var keep_distance_radius = 50.0
 var match_velocity_strength = 0.05
+var follow_goal_strength = 0.25
 
 var mask := 0 setget set_mask
 var last_seen = []
@@ -30,7 +31,7 @@ func set_radius(value: int) -> void:
 	neighbor_search_radius = value
 	NeighorSearchShape.radius = neighbor_search_radius
 
-func get_target_velocity(current_velocity: Vector2) -> Vector2:
+func get_target_velocity(current_velocity: Vector2, goal) -> Vector2:
 	last_seen = []
 	update()
 	var collisions = Utils.shape_cast_get_result(NeighorSearchShape, get_parent().transform, self.mask, [get_parent()])
@@ -42,6 +43,8 @@ func get_target_velocity(current_velocity: Vector2) -> Vector2:
 	var center_of_mass = Vector2.ZERO
 	var keep_distance = Vector2.ZERO
 	var match_velocity = Vector2.ZERO
+	var follow_goal = Vector2.ZERO
+	var flee_direction = Vector2.ZERO
 	
 	var neigbor_count = 0
 	for collision in collisions:
@@ -63,6 +66,20 @@ func get_target_velocity(current_velocity: Vector2) -> Vector2:
 		# rule 3
 		if neighbor is Animal:
 			match_velocity += neighbor.velocity
+		
+		if neighbor.name.find("Player") != -1:
+			if neighbor.global_position.distance_to(get_parent().global_position) < (keep_distance_radius * 3.0):
+				flee_direction = - (neighbor.global_position - get_parent().global_position)
+		
+	
+	# rule 5
+	if goal != null:
+		follow_goal = (goal - get_parent().global_position).normalized() * follow_goal_strength
+	
+	
+	# rule 5
+#	if flee != null:
+
 	
 	if neigbor_count > 0:
 		center_of_mass /= float(neigbor_count)
@@ -72,4 +89,4 @@ func get_target_velocity(current_velocity: Vector2) -> Vector2:
 	match_velocity = (match_velocity - get_parent().velocity) * match_velocity_strength
 	keep_distance *= 0.01
 	
-	return current_velocity + center_of_mass + keep_distance + match_velocity
+	return current_velocity + center_of_mass + keep_distance + match_velocity + follow_goal + flee_direction
