@@ -3,18 +3,11 @@
 [ext_resource path="res://Compass/Compass.gd" type="Script" id=1]
 [ext_resource path="res://Compass/CompassNeedle.png" type="Texture" id=2]
 
-[node name="Compass" type="CenterContainer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -55.0
-margin_top = 1.0
-margin_right = -1.0
-margin_bottom = 49.0
+[node name="Compass" type="Container"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Needle" type="Sprite" parent="."]
-position = Vector2( -51.3923, 106.065 )
 texture = ExtResource( 2 )

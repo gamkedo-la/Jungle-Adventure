@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Container
 
 # export(type, min, max, step)
 # Class members can be exported, this means their value gets saved along with the resource (such as the scene) they're attached to. 
@@ -21,10 +21,10 @@ func _process(delta):
 	var pointAt = NorthPosition
 	if(PointAtMouse):
 		pointAt = get_global_mouse_position();
-		
+	
 	# Do some math to recalculate the Pointer orientation
 	#Needle.rotation = ( pointAt - Needle.position).angle() # Might need to add + PI / 2 here ??
-	Needle.rotation = Needle.get_angle_to(pointAt)
+	Needle.look_at(pointAt);
 	
 # Not sure what I've done wrong declaring these param
 #func SetNorthPosition(Position2D northPosition):

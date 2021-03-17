@@ -331,10 +331,12 @@ position = Vector2( 576, 384 )
 [node name="CanvasLayer" type="CanvasLayer" parent="RoomGenerator"]
 
 [node name="Compass" parent="RoomGenerator/CanvasLayer" instance=ExtResource( 7 )]
-margin_left = -204.89
-margin_top = 8.86011
-margin_right = -150.89
-margin_bottom = 56.8601
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -204.0
+margin_top = 100.0
+margin_right = -147.0
+margin_bottom = 59.0
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]
 
