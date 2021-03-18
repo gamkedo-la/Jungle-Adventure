@@ -341,6 +341,7 @@ margin_bottom = 56.8601
 position = Vector2( 704.792, 310.431 )
 
 [node name="Sprite" parent="BurpingClam" index="0"]
+position = Vector2( 30.1699, 25.4558 )
 frame = 19
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]
