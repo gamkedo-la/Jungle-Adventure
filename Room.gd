@@ -57,6 +57,16 @@ func add_room(rng, branch_for_members):
 			var random_offset = Vector2.RIGHT.rotated(deg2rad(randf() * 360.0)).normalized() * (randf() * ANIMAL_SPAWN_RADIUS)
 			animal.position = position + animal_spawn_area + random_offset
 			branch_for_members.call_deferred("add_child", animal)
+			
+	
+	for new_member in forMemberBranch.get_children():
+		forMemberBranch.remove_child(new_member)
+		branch_for_members.add_child(new_member)
+		var x = new_member.position.x/CELL_SIZE
+		var y = new_member.position.y/CELL_SIZE
+		_members[Vector2(x, y).round()] = new_member
+		new_member.position += position
+	forMemberBranch.queue_free()
 
 
 func find_this_room(branch_for_members):

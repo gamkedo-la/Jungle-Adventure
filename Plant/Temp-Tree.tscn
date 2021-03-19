@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Plant/temp-tree.png" type="Texture" id=1]
+[ext_resource path="res://Plant/tree1idlestates.png" type="Texture" id=1]
 [ext_resource path="res://Plant/plant.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 11, 21.8, 30.2, 38.2, 45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 5, 4, 2, 2, 1, 0 ]
+"values": [ 4, 4, 2, 2, 1, 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CollisionShape2D:disabled")
@@ -52,6 +52,18 @@ tracks/2/keys = {
 "args": [ 1 ],
 "method": "add_hp"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RenderArea2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 21.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -112,8 +124,9 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 96, 99 )
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 53.0
+height = 42.0
 
 [node name="Temp-Tree" type="StaticBody2D"]
 collision_layer = 33
@@ -121,12 +134,15 @@ script = ExtResource( 2 )
 maxHP = 3
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 8, -97 )
+position = Vector2( 0, -84 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
-hframes = 6
+hframes = 5
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -144,10 +160,9 @@ collision_mask = 8
 shape = SubResource( 1 )
 
 [node name="RenderArea2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RenderArea2D"]
-position = Vector2( 8, -127 )
+position = Vector2( 0, -70 )
 shape = SubResource( 6 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="RenderArea2D" to="." method="_on_RenderArea2D_body_entered"]
