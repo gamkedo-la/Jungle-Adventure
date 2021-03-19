@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Landmarks/burpingclam.png" type="Texture" id=1]
 [ext_resource path="res://Landmarks/BurpingClam.gd" type="Script" id=2]
 [ext_resource path="res://Effects/Bubbles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Landmarks/burping_clam2.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open and Close"
@@ -33,20 +34,153 @@ tracks/1/keys = {
 "values": [ false, true, false ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "onc"
+length = 12.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 2.5, 3, 5, 6, 6.1, 6.2, 8.6, 8.7, 8.8, 8.9, 9, 9.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ClamBubbles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6.1, 8.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ClamBubblesL:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.4, 3, 5, 5.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ClamBubblesR:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.4, 3, 5, 5.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ClamBubbles:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6.1, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.5, 3.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ClamBubbles:lifetime")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 6, 8.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 15.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ClamBubbles:explosiveness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 8, 8.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ClamBubbles:process_material:initial_velocity")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 6.1, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 33.0, 346.77, 33.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ClamBubbles:process_material:initial_velocity_random")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 7.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.5 ]
+}
+
 [node name="BurpingClam" type="Node2D"]
-scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 1 )
 hframes = 20
 frame = 9
 
+[node name="Sprite2" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+hframes = 6
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
 "anims/Open and Close" = SubResource( 1 )
+anims/onc = SubResource( 5 )
 
 [node name="ClamBubbles" parent="." instance=ExtResource( 3 )]
-position = Vector2( 10.0649, 22.4253 )
+position = Vector2( 9.12205, -40.2715 )
 emitting = false
-amount = 760
+amount = 500
+lifetime = 11.126
+speed_scale = 1.3696
+explosiveness = 0.233404
+
+[node name="ClamBubblesL" parent="." instance=ExtResource( 3 )]
+position = Vector2( -118.953, 10.0816 )
+scale = Vector2( 0.75, 1 )
+emitting = false
+amount = 200
+
+[node name="ClamBubblesR" parent="." instance=ExtResource( 3 )]
+position = Vector2( 100.037, 35.5227 )
+scale = Vector2( 0.65, 0.65 )
+emitting = false
+amount = 200

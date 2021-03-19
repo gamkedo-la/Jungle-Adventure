@@ -129,7 +129,7 @@ position = Vector2( 312, 568 )
 position = Vector2( 480, 608 )
 
 [node name="Temp-Tree17" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="11" instance=ExtResource( 6 )]
-position = Vector2( 672, 600 )
+position = Vector2( 592.413, 743.732 )
 
 [node name="Temp-Tree18" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="12" instance=ExtResource( 6 )]
 position = Vector2( 896, 584 )
@@ -338,11 +338,7 @@ margin_right = -150.89
 margin_bottom = 56.8601
 
 [node name="BurpingClam" parent="." instance=ExtResource( 7 )]
-position = Vector2( 704.792, 310.431 )
-
-[node name="Sprite" parent="BurpingClam" index="0"]
-position = Vector2( 30.1699, 25.4558 )
-frame = 19
+position = Vector2( 735.68, 416.756 )
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]
 
