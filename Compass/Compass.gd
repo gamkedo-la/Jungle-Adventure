@@ -23,8 +23,7 @@ func _process(delta):
 		pointAt = get_global_mouse_position();
 	
 	# Do some math to recalculate the Pointer orientation
-	#Needle.rotation = ( pointAt - Needle.position).angle() # Might need to add + PI / 2 here ??
-	Needle.look_at(pointAt);
+	Needle.rotate(Needle.get_angle_to(pointAt) + PI / 2)
 	
 # Not sure what I've done wrong declaring these param
 #func SetNorthPosition(Position2D northPosition):
