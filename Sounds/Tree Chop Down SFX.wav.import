@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Tree Chop Down SFX.wav-f023fad00f07d64cfa0414ed170e9c3d.sample"
+
+[deps]
+
+source_file="res://Sounds/Tree Chop Down SFX.wav"
+dest_files=[ "res://.import/Tree Chop Down SFX.wav-f023fad00f07d64cfa0414ed170e9c3d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

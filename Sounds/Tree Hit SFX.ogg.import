@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Tree Hit SFX.ogg-a559520defabc38967a9d93076428803.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Tree Hit SFX.ogg"
+dest_files=[ "res://.import/Tree Hit SFX.ogg-a559520defabc38967a9d93076428803.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

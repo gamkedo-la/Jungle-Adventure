@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Tree Hit SFX.wav-81cc557ed4471ca1ea12d6bafeb48847.sample"
+
+[deps]
+
+source_file="res://Sounds/Tree Hit SFX.wav"
+dest_files=[ "res://.import/Tree Hit SFX.wav-81cc557ed4471ca1ea12d6bafeb48847.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
