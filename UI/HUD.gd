@@ -20,6 +20,10 @@ func refresh_margins():
 	rect_position.x = 0
 	rect_position.y = dimensions.position.y
 	rect_min_size = dimensions.size * .90
+	anchor_left = 0.5
+	anchor_right = 0.5
+	anchor_bottom = 0.5
+	anchor_top = 0.5
 	
 	# HUD Box Vertical Spacers	
 	vert_margin.rect_min_size.y = dimensions.size.y * .1
@@ -31,7 +35,7 @@ func refresh_margins():
 	compass.rect_position.x = compass_container.rect_size.x * .7
 	
 	#Mid Screen Spacer
-	vert_margin_mid.rect_min_size.y = dimensions.size.y * .30
+	vert_margin_mid.rect_min_size.y = dimensions.size.y * .50
 	vert_margin_mid.rect_min_size.x = dimensions.size.x * .50
 	
 	landmark_cont.rect_min_size.x = dimensions.size.x * .50
@@ -43,3 +47,9 @@ func refresh_margins():
 func _on_HUD_resized():
 	if dimensions:
 		refresh_margins()
+
+
+func _on_ColorRect_gui_input(event):
+	
+	$LandmarkContainer/ColorRect.visible = false
+	$LandmarkContainer/burping_clam_icon.visible = true

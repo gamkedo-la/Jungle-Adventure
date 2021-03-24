@@ -333,56 +333,90 @@ position = Vector2( 576, 384 )
 [node name="CanvasLayer" type="CanvasLayer" parent="RoomGenerator"]
 
 [node name="HUD" type="VBoxContainer" parent="RoomGenerator/CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -584.32
+margin_top = -403.5
+margin_right = 584.32
+margin_bottom = 403.5
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VSpacer" type="Control" parent="RoomGenerator/CanvasLayer/HUD"]
-margin_right = 1632.0
+margin_right = 1168.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="CompassCont" type="HBoxContainer" parent="RoomGenerator/CanvasLayer/HUD"]
 margin_top = 24.0
-margin_right = 1632.0
+margin_right = 1168.0
 margin_bottom = 224.0
 rect_min_size = Vector2( 600, 200 )
 alignment = 2
 
 [node name="Compass" parent="RoomGenerator/CanvasLayer/HUD/CompassCont" instance=ExtResource( 7 )]
-margin_left = 1578.0
-margin_right = 1578.0
+margin_left = 1114.0
+margin_right = 1114.0
 margin_bottom = 200.0
 
 [node name="HSpacer" type="Control" parent="RoomGenerator/CanvasLayer/HUD/CompassCont"]
-margin_left = 1582.0
-margin_right = 1632.0
+margin_left = 1118.0
+margin_right = 1168.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 50, 0 )
 
 [node name="VSpacer_MidScreen" type="Control" parent="RoomGenerator/CanvasLayer/HUD"]
 margin_top = 228.0
-margin_right = 1632.0
+margin_right = 1168.0
 margin_bottom = 728.0
 rect_min_size = Vector2( 0, 500 )
 
 [node name="LandmarkContainer" type="HBoxContainer" parent="RoomGenerator/CanvasLayer/HUD"]
-visible = false
 margin_top = 732.0
-margin_right = 1632.0
-margin_bottom = 832.0
-rect_min_size = Vector2( 0, 100 )
-alignment = 2
+margin_right = 1168.0
+margin_bottom = 807.0
+alignment = 1
 
 [node name="burping_clam_icon" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
-margin_left = 1559.0
-margin_right = 1632.0
-margin_bottom = 100.0
+visible = false
+margin_left = 184.0
+margin_right = 257.0
+margin_bottom = 75.0
 texture = ExtResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+margin_left = 428.0
+margin_right = 503.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+color = Color( 0, 0, 0, 0.337255 )
+
+[node name="ColorRect2" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+margin_left = 507.0
+margin_right = 582.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+color = Color( 0, 0, 0, 0.337255 )
+
+[node name="ColorRect3" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+margin_left = 586.0
+margin_right = 661.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+color = Color( 0, 0, 0, 0.337255 )
+
+[node name="ColorRect4" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+margin_left = 665.0
+margin_right = 740.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+color = Color( 0, 0, 0, 0.337255 )
 [connection signal="resized" from="RoomGenerator/CanvasLayer/HUD" to="RoomGenerator/CanvasLayer/HUD" method="_on_HUD_resized"]
+[connection signal="gui_input" from="RoomGenerator/CanvasLayer/HUD/LandmarkContainer/ColorRect" to="RoomGenerator/CanvasLayer/HUD" method="_on_ColorRect_gui_input"]
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]
 
