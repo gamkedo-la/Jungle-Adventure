@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://RoomGeneration.gd" type="Script" id=1]
 [ext_resource path="res://Room.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Compass/Compass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/HUD.gd" type="Script" id=8]
 [ext_resource path="res://Landmarks/burping_clam_icon.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/Music/Jungle Adventure Music.ogg" type="AudioStream" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -415,6 +416,11 @@ margin_right = 740.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -12.0
+autoplay = true
 [connection signal="resized" from="RoomGenerator/CanvasLayer/HUD" to="RoomGenerator/CanvasLayer/HUD" method="_on_HUD_resized"]
 [connection signal="gui_input" from="RoomGenerator/CanvasLayer/HUD/LandmarkContainer/ColorRect" to="RoomGenerator/CanvasLayer/HUD" method="_on_ColorRect_gui_input"]
 

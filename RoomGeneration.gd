@@ -98,8 +98,8 @@ func _place_landmark(runs = 3):
 		_current_landmark = _landmark_location
 		if _landmark_index >= _landmarks.get_child_count():
 			_landmark_index = 0
-		var compass_x = x * ROOM_WIDTH_PX + ROOM_WIDTH_PX/2
-		var compass_y = y * ROOM_HEIGHT_PX + ROOM_HEIGHT_PX/2
+		var compass_x = x * ROOM_WIDTH_PX + ROOM_WIDTH_PX/2.0
+		var compass_y = y * ROOM_HEIGHT_PX + ROOM_HEIGHT_PX/2.0
 		compass.SetNorthPosition(Vector2(compass_x, compass_y))
 	else:
 		_place_landmark((runs - 1))

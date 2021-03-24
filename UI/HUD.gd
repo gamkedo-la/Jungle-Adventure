@@ -49,7 +49,7 @@ func _on_HUD_resized():
 		refresh_margins()
 
 
-func _on_ColorRect_gui_input(event):
+func _on_ColorRect_gui_input(_event):
 	
 	$LandmarkContainer/ColorRect.visible = false
 	$LandmarkContainer/burping_clam_icon.visible = true

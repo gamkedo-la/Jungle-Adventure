@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Tree Hit SFX.ogg-a559520defabc38967a9d93076428803.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

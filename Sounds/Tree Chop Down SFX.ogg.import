@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Tree Chop Down SFX.ogg-9756240a6d2fd8510b930c98a6df4
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
