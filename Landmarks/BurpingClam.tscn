@@ -159,6 +159,7 @@ frame = 9
 [node name="Sprite2" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 hframes = 6
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
@@ -169,9 +170,9 @@ anims/onc = SubResource( 5 )
 position = Vector2( 9.12205, -40.2715 )
 emitting = false
 amount = 500
-lifetime = 11.126
-speed_scale = 1.3696
-explosiveness = 0.233404
+lifetime = 4.50143
+speed_scale = 0.659607
+explosiveness = 0.662526
 
 [node name="ClamBubblesL" parent="." instance=ExtResource( 3 )]
 position = Vector2( -118.953, 10.0816 )

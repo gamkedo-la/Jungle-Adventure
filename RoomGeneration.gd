@@ -25,7 +25,7 @@ var _rng := RandomNumberGenerator.new()
 
 onready var branch_for_members = $BranchForMembers
 onready var branch_for_rooms = $BranchForRooms
-onready var compass = $CanvasLayer/Compass
+onready var compass = $CanvasLayer/HUD/CompassCont/Compass
 
 func _ready():
 	_rng.randomize()
