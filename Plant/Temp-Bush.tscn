@@ -5,14 +5,13 @@
 [ext_resource path="res://Sounds/Bush/Bush Chop Down 01.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/Bush/Bush Hit 01.wav" type="AudioStream" id=4]
 
-[sub_resource type="AudioStreamRandomPitch" id=4]
+[sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 3 )
 
-[sub_resource type="AudioStreamRandomPitch" id=5]
+[sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 4 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Grow"
+[sub_resource type="Animation" id=3]
 length = 30.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -89,8 +88,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -117,14 +115,14 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=5]
 radius = 29.0
 
 [node name="Temp-Bush" type="StaticBody2D"]
 collision_layer = 33
 script = ExtResource( 2 )
-sfxChop = SubResource( 4 )
-sfxHit = SubResource( 5 )
+sfxChop = SubResource( 1 )
+sfxHit = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 8, -68 )
@@ -141,11 +139,11 @@ frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Grow = SubResource( 1 )
-anims/Idle = SubResource( 2 )
+anims/Grow = SubResource( 3 )
+anims/Idle = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -153,7 +151,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

@@ -5,17 +5,16 @@
 [ext_resource path="res://Sounds/Tree Chop Down SFX.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/Tree Hit SFX.ogg" type="AudioStream" id=4]
 
-[sub_resource type="AudioStreamRandomPitch" id=8]
+[sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 3 )
 
-[sub_resource type="AudioStreamRandomPitch" id=9]
+[sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 4 )
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 radius = 29.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "Grow"
+[sub_resource type="Animation" id=4]
 length = 45.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -74,8 +73,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
+[sub_resource type="Animation" id=5]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -102,8 +100,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Opaque"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:self_modulate")
 tracks/0/interp = 1
@@ -117,8 +114,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Transparent"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:self_modulate")
 tracks/0/interp = 1
@@ -132,18 +128,18 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=8]
 radius = 53.0
 height = 42.0
 
-[sub_resource type="AudioStreamRandomPitch" id=7]
+[sub_resource type="AudioStreamRandomPitch" id=9]
 
 [node name="Temp-Tree" type="StaticBody2D"]
 collision_layer = 33
 script = ExtResource( 2 )
 maxHP = 3
-sfxChop = SubResource( 8 )
-sfxHit = SubResource( 9 )
+sfxChop = SubResource( 1 )
+sfxHit = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -84 )
@@ -153,15 +149,15 @@ hframes = 5
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Grow = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-anims/Opaque = SubResource( 4 )
-anims/Transparent = SubResource( 5 )
+anims/Grow = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Opaque = SubResource( 6 )
+anims/Transparent = SubResource( 7 )
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -169,16 +165,16 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="RenderArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RenderArea2D"]
 position = Vector2( 0, -70 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource( 7 )
+stream = SubResource( 9 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="RenderArea2D" to="." method="_on_RenderArea2D_body_entered"]
 [connection signal="body_exited" from="RenderArea2D" to="." method="_on_RenderArea2D_body_exited"]
