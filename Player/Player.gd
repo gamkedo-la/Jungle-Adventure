@@ -24,6 +24,7 @@ func _process(delta):
 		STRIKE:
 			state_strike(delta)
 
+
 func state_move(delta):
 	input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -33,10 +34,12 @@ func state_move(delta):
 	if !input_vector.is_equal_approx(Vector2.ZERO):
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		animationTree.set("parameters/Idle/blend_position", input_vector)
+		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationTree.set("parameters/Strike/blend_position", input_vector)
-		animationState.travel("Idle")
+		animationState.travel("Walk")
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		animationState.travel("Idle")
 		
 	if velocity.is_equal_approx(Vector2.ZERO):	
 		animationState.travel("Idle")
