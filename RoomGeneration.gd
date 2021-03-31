@@ -27,6 +27,8 @@ onready var branch_for_members = $BranchForMembers
 onready var branch_for_rooms = $BranchForRooms
 onready var compass = $CanvasLayer/HUD/CompassCont/Compass
 
+onready var HUD = $CanvasLayer/HUD
+
 func _ready():
 	_rng.randomize()
 	_rooms = Rooms.instance()
@@ -38,6 +40,7 @@ func _ready():
 func player_here(player_position:Vector2):
 	_room_with_player = player_position
 	if _room_with_player.round() == _current_landmark.round():
+		HUD.record_landmark(_landmark_index)
 		_place_landmark()
 	_update_map()
 

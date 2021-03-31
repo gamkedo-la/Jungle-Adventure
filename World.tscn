@@ -380,38 +380,34 @@ rect_min_size = Vector2( 0, 500 )
 [node name="LandmarkContainer" type="HBoxContainer" parent="RoomGenerator/CanvasLayer/HUD"]
 margin_top = 732.0
 margin_right = 1168.0
-margin_bottom = 807.0
+margin_bottom = 732.0
 alignment = 1
 
-[node name="burping_clam_icon" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+[node name="0" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
 margin_left = 184.0
 margin_right = 257.0
 margin_bottom = 75.0
 texture = ExtResource( 9 )
 
-[node name="ColorRect" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
-margin_left = 428.0
-margin_right = 503.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-color = Color( 0, 0, 0, 0.337255 )
-
-[node name="ColorRect2" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+[node name="1" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+visible = false
 margin_left = 507.0
 margin_right = 582.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
 
-[node name="ColorRect3" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+[node name="2" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+visible = false
 margin_left = 586.0
 margin_right = 661.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
 
-[node name="ColorRect4" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+[node name="3" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+visible = false
 margin_left = 665.0
 margin_right = 740.0
 margin_bottom = 75.0
@@ -427,7 +423,6 @@ stream = ExtResource( 10 )
 volume_db = -12.0
 autoplay = true
 [connection signal="resized" from="RoomGenerator/CanvasLayer/HUD" to="RoomGenerator/CanvasLayer/HUD" method="_on_HUD_resized"]
-[connection signal="gui_input" from="RoomGenerator/CanvasLayer/HUD/LandmarkContainer/ColorRect" to="RoomGenerator/CanvasLayer/HUD" method="_on_ColorRect_gui_input"]
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]
 
