@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://RoomGeneration.gd" type="Script" id=1]
 [ext_resource path="res://Room.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Landmarks/burping_clam_icon.png" type="Texture" id=9]
 [ext_resource path="res://Sounds/Music/Jungle Adventure Music.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Sounds/Jungle Ambience Loop.wav" type="AudioStream" id=11]
+[ext_resource path="res://UI/MainMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/MenuLayer.gd" type="Script" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -385,43 +387,52 @@ alignment = 1
 
 [node name="0" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
-margin_left = 184.0
-margin_right = 257.0
-margin_bottom = 75.0
+margin_left = 547.0
+margin_right = 620.0
+margin_bottom = 65.0
 texture = ExtResource( 9 )
 
 [node name="1" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
-margin_left = 507.0
-margin_right = 582.0
+margin_left = 585.0
+margin_right = 660.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
 
 [node name="2" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
-margin_left = 586.0
-margin_right = 661.0
+margin_left = 624.0
+margin_right = 699.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
 
 [node name="3" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
-margin_left = 665.0
-margin_right = 740.0
+margin_left = 664.0
+margin_right = 739.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 11 )
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 10 )
 volume_db = -12.0
 autoplay = true
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 13 )
+
+[node name="MainMenu" parent="MenuLayer" instance=ExtResource( 12 )]
+visible = false
 [connection signal="resized" from="RoomGenerator/CanvasLayer/HUD" to="RoomGenerator/CanvasLayer/HUD" method="_on_HUD_resized"]
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]

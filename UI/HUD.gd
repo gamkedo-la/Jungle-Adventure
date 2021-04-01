@@ -16,6 +16,8 @@ func _ready():
 	#compass_container.rect_min_size.y = compass.
 	#compass.rect_position.x = dimensions.position.x
 
+
+
 func refresh_margins():
 	# HUD Box Positionining
 	rect_position.x = 0
@@ -55,7 +57,3 @@ func _on_HUD_resized():
 	if dimensions:
 		refresh_margins()
 
-func _on_ColorRect_gui_input(_event):
-	
-	$LandmarkContainer/ColorRect.visible = false
-	$LandmarkContainer/burping_clam_icon.visible = true
