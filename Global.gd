@@ -16,8 +16,7 @@ func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
-func _process(_delta):
-	print("Menu Open: ", menu_open)
+func _process(_delta):	
 	if game_live:
 		if Input.is_action_just_pressed("ui_pause"):
 			Global._pause_and_display_menu()
