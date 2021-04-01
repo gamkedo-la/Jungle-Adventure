@@ -18,6 +18,9 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_pause"):
+		Global._pause_and_display_menu()
+		
 	match state:
 		MOVE:
 			state_move(delta)
