@@ -8,11 +8,20 @@ var main_music = load("res://Sounds/Music.tscn")
 var ambience = load("res://Sounds/Ambience.tscn")
 var menu_open = false
 var game_live = false
-export var day = true
+var game_music = null
+var game_ambience = null
+
 
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
+	
+func _process(_delta):
+	print("Menu Open: ", menu_open)
+	if game_live:
+		if Input.is_action_just_pressed("ui_pause"):
+			Global._pause_and_display_menu()
+	
 	
 	
 func goto_scene(path):
@@ -33,6 +42,8 @@ func _deferred_goto_scene(path):
 	
 	get_tree().set_current_scene(current_scene)
 	
+	menu_open = false
+	
 	
 	
 func _pause_and_display_menu():
@@ -43,8 +54,12 @@ func _pause_and_display_menu():
 		in_game_menu._disable_new()
 		menu_open = true
 	else:
-		if in_game_menu:
-			in_game_menu.free()
-		if get_tree().paused == true:
-			get_tree().paused = false
-		menu_open = false
+		call_deferred("_deferred_free_menu")
+
+		
+func _deferred_free_menu():
+	if in_game_menu:
+		in_game_menu.free()
+	if get_tree().paused == true:
+		get_tree().paused = false
+	menu_open = false

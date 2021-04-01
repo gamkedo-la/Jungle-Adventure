@@ -35,6 +35,7 @@ func _ready():
 	_landmarks = Landmarks.instance()
 	_scan_for_rooms()
 	_place_landmark()
+	Global.game_live = true
 
 
 func player_here(player_position:Vector2):

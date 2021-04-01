@@ -28,6 +28,8 @@ config/icon="res://icon.png"
 
 Utils="*res://Utils.gd"
 Global="*res://Global.gd"
+Music="*res://Sounds/Music.tscn"
+Ambience="*res://Sounds/Ambience.tscn"
 
 [debug]
 
