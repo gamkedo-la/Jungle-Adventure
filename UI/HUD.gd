@@ -7,13 +7,16 @@ onready var compass_container = $CompassCont
 onready var compass = $CompassCont/Compass
 onready var landmark_cont = $LandmarkContainer
 
+onready var landmark_icons = landmark_cont.get_children()
+var test_lm = 0
 onready var dimensions = get_viewport_rect()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	refresh_margins()
-	
 	#compass_container.rect_min_size.y = compass.
 	#compass.rect_position.x = dimensions.position.x
+
+
 
 func refresh_margins():
 	# HUD Box Positionining
@@ -42,14 +45,15 @@ func refresh_margins():
 	landmark_cont.alignment = BoxContainer.ALIGN_CENTER
 	
 
-
+func record_landmark(index):
+	var landmark_icon = null
+	index -= 1
+	if index <= landmark_cont.get_child_count():
+		landmark_icon = landmark_cont.get_child(index)
+	if landmark_icon:
+		landmark_icon.visible = true
 
 func _on_HUD_resized():
 	if dimensions:
 		refresh_margins()
 
-
-func _on_ColorRect_gui_input(_event):
-	
-	$LandmarkContainer/ColorRect.visible = false
-	$LandmarkContainer/burping_clam_icon.visible = true
