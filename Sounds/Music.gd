@@ -3,7 +3,7 @@ extends Node
 export (Array, Vector2) var mix_at_distance
 
 var leaving: bool = false
-var fade_speed = 12
+var fade_speed = 40
 var target_explore_db = 0
 var target_newroom_db = -40
 var target_found_db = -40
@@ -21,10 +21,10 @@ func _process(delta):
 	if leaving:
 		if Global.room_with_player != last_landmark:
 			leaving = false
+			last_landmark = Global.current_landmark
 	else:
 		if Global.current_landmark != last_landmark:
 			leaving = true
-			last_landmark = Global.current_landmark
 	
 	_Set_Targets()
 	_Set_Levels(delta)
@@ -58,11 +58,14 @@ func _Set_Targets():
 				target_newroom_db = mix_at_distance[i].y
 	
 	if leaving:
-		target_explore_db = -40
+		target_explore_db = -20
 		target_newroom_db = -40
-		target_found_db = 0
+		target_found_db = 6
 	else:
-		target_found_db = -40
+		if distance < 1.5:
+			target_found_db = -12
+		else:
+			target_found_db = -40
 
 
 
