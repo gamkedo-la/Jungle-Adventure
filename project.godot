@@ -21,12 +21,15 @@ _global_script_class_icons={
 [application]
 
 config/name="Jungle Adventure"
-run/main_scene="res://World.tscn"
+run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Utils="*res://Utils.gd"
+Global="*res://Global.gd"
+Music="*res://Sounds/Music.tscn"
+Ambience="*res://Sounds/Ambience.tscn"
 
 [debug]
 

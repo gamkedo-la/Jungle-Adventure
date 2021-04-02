@@ -18,6 +18,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _process(delta):
+	
 	match state:
 		MOVE:
 			state_move(delta)

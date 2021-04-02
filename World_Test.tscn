@@ -1,17 +1,14 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://RoomGeneration.gd" type="Script" id=1]
-[ext_resource path="res://Room.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Temp_tileset.png" type="Texture" id=4]
-[ext_resource path="res://Plant/Temp-Bush.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Plant/Temp-Tree.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Compass/Compass.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/HUD.gd" type="Script" id=8]
-[ext_resource path="res://Landmarks/burping_clam_icon.png" type="Texture" id=9]
-[ext_resource path="res://Sounds/Ambience.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=11]
-[ext_resource path="res://UI/MainMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Landmarks/burping_clam_icon.png" type="Texture" id=2]
+[ext_resource path="res://Compass/Compass.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Plant/Temp-Bush.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Room.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Plant/Temp-Tree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/HUD.gd" type="Script" id=11]
+[ext_resource path="res://Temp_tileset.png" type="Texture" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -23,7 +20,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 [sub_resource type="TileSet" id=3]
 resource_local_to_scene = true
 0/name = "Temp_tileset.png 0"
-0/texture = ExtResource( 4 )
+0/texture = ExtResource( 12 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
@@ -51,7 +48,7 @@ resource_local_to_scene = true
 } ]
 0/z_index = 0
 1/name = "Temp_tileset.png 1"
-1/texture = ExtResource( 4 )
+1/texture = ExtResource( 12 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 64, 0, 64, 64 )
@@ -83,7 +80,7 @@ script = ExtResource( 1 )
 
 [node name="BranchForRooms" type="YSort" parent="RoomGenerator"]
 
-[node name="StartingRoom" parent="RoomGenerator/BranchForRooms" instance=ExtResource( 2 )]
+[node name="StartingRoom" parent="RoomGenerator/BranchForRooms" instance=ExtResource( 9 )]
 permanent = true
 available_nodes = {
 0: 0,
@@ -99,139 +96,139 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 1, 0, 
 [node name="CollisionShape2D" parent="RoomGenerator/BranchForRooms/StartingRoom" index="1"]
 shape = SubResource( 4 )
 
-[node name="Temp-Tree" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="0" instance=ExtResource( 6 )]
+[node name="Temp-Tree" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="0" instance=ExtResource( 10 )]
 position = Vector2( 960, 384 )
 
-[node name="Temp-Tree7" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="1" instance=ExtResource( 6 )]
+[node name="Temp-Tree7" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="1" instance=ExtResource( 10 )]
 position = Vector2( 1056, 296 )
 
-[node name="Temp-Tree8" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="2" instance=ExtResource( 6 )]
+[node name="Temp-Tree8" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="2" instance=ExtResource( 10 )]
 position = Vector2( 960, 264 )
 
-[node name="Temp-Tree9" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="3" instance=ExtResource( 6 )]
+[node name="Temp-Tree9" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="3" instance=ExtResource( 10 )]
 position = Vector2( 856, 216 )
 
-[node name="Temp-Tree10" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="4" instance=ExtResource( 6 )]
+[node name="Temp-Tree10" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="4" instance=ExtResource( 10 )]
 position = Vector2( 704, 224 )
 
-[node name="Temp-Tree11" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="5" instance=ExtResource( 6 )]
+[node name="Temp-Tree11" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="5" instance=ExtResource( 10 )]
 position = Vector2( 600, 168 )
 
-[node name="Temp-Tree12" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="6" instance=ExtResource( 6 )]
+[node name="Temp-Tree12" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="6" instance=ExtResource( 10 )]
 position = Vector2( 312, 232 )
 
-[node name="Temp-Tree13" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="7" instance=ExtResource( 6 )]
+[node name="Temp-Tree13" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="7" instance=ExtResource( 10 )]
 position = Vector2( 224, 304 )
 
-[node name="Temp-Tree14" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="8" instance=ExtResource( 6 )]
+[node name="Temp-Tree14" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="8" instance=ExtResource( 10 )]
 position = Vector2( 240, 480 )
 
-[node name="Temp-Tree15" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="9" instance=ExtResource( 6 )]
+[node name="Temp-Tree15" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="9" instance=ExtResource( 10 )]
 position = Vector2( 312, 568 )
 
-[node name="Temp-Tree16" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="10" instance=ExtResource( 6 )]
+[node name="Temp-Tree16" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="10" instance=ExtResource( 10 )]
 position = Vector2( 480, 608 )
 
-[node name="Temp-Tree17" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="11" instance=ExtResource( 6 )]
+[node name="Temp-Tree17" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="11" instance=ExtResource( 10 )]
 position = Vector2( 672, 600 )
 
-[node name="Temp-Tree18" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="12" instance=ExtResource( 6 )]
+[node name="Temp-Tree18" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="12" instance=ExtResource( 10 )]
 position = Vector2( 896, 584 )
 
-[node name="Temp-Tree19" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="13" instance=ExtResource( 6 )]
+[node name="Temp-Tree19" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="13" instance=ExtResource( 10 )]
 position = Vector2( 984, 504 )
 
-[node name="Temp-Tree20" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="14" instance=ExtResource( 6 )]
+[node name="Temp-Tree20" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="14" instance=ExtResource( 10 )]
 position = Vector2( 912, 720 )
 
-[node name="Temp-Tree21" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="15" instance=ExtResource( 6 )]
+[node name="Temp-Tree21" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="15" instance=ExtResource( 10 )]
 position = Vector2( 1136, 544 )
 
-[node name="Temp-Tree22" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="16" instance=ExtResource( 6 )]
+[node name="Temp-Tree22" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="16" instance=ExtResource( 10 )]
 position = Vector2( 1112, 144 )
 
-[node name="Temp-Tree23" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="17" instance=ExtResource( 6 )]
+[node name="Temp-Tree23" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="17" instance=ExtResource( 10 )]
 position = Vector2( 664, 64 )
 
-[node name="Temp-Tree24" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="18" instance=ExtResource( 6 )]
+[node name="Temp-Tree24" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="18" instance=ExtResource( 10 )]
 position = Vector2( 208, 64 )
 
-[node name="Temp-Tree2" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="19" instance=ExtResource( 6 )]
+[node name="Temp-Tree2" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="19" instance=ExtResource( 10 )]
 position = Vector2( 448, 512 )
 
-[node name="Temp-Tree25" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="20" instance=ExtResource( 6 )]
+[node name="Temp-Tree25" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="20" instance=ExtResource( 10 )]
 position = Vector2( 248, 704 )
 
-[node name="Temp-Tree26" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="21" instance=ExtResource( 6 )]
+[node name="Temp-Tree26" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="21" instance=ExtResource( 10 )]
 position = Vector2( 56, 400 )
 
-[node name="Temp-Tree27" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="22" instance=ExtResource( 6 )]
+[node name="Temp-Tree27" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="22" instance=ExtResource( 10 )]
 position = Vector2( 936, 24 )
 
-[node name="Temp-Tree3" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="23" instance=ExtResource( 6 )]
+[node name="Temp-Tree3" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="23" instance=ExtResource( 10 )]
 position = Vector2( 984, 144 )
 
-[node name="Temp-Tree4" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="24" instance=ExtResource( 6 )]
+[node name="Temp-Tree4" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="24" instance=ExtResource( 10 )]
 position = Vector2( 456, 680 )
 
-[node name="Temp-Tree5" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="25" instance=ExtResource( 6 )]
+[node name="Temp-Tree5" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="25" instance=ExtResource( 10 )]
 position = Vector2( 144, 488 )
 
-[node name="Temp-Tree6" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="26" instance=ExtResource( 6 )]
+[node name="Temp-Tree6" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="26" instance=ExtResource( 10 )]
 position = Vector2( 152, 120 )
 
-[node name="Temp-Bush" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="27" instance=ExtResource( 5 )]
+[node name="Temp-Bush" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="27" instance=ExtResource( 8 )]
 position = Vector2( 408, 216 )
 
-[node name="Temp-Bush2" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="28" instance=ExtResource( 5 )]
+[node name="Temp-Bush2" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="28" instance=ExtResource( 8 )]
 position = Vector2( 472, 184 )
 
-[node name="Temp-Bush3" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="29" instance=ExtResource( 5 )]
+[node name="Temp-Bush3" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="29" instance=ExtResource( 8 )]
 position = Vector2( 336, 120 )
 
-[node name="Temp-Bush4" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="30" instance=ExtResource( 5 )]
+[node name="Temp-Bush4" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="30" instance=ExtResource( 8 )]
 position = Vector2( 416, 48 )
 
-[node name="Temp-Bush5" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="31" instance=ExtResource( 5 )]
+[node name="Temp-Bush5" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="31" instance=ExtResource( 8 )]
 position = Vector2( 776, 128 )
 
-[node name="Temp-Bush10" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="32" instance=ExtResource( 5 )]
+[node name="Temp-Bush10" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="32" instance=ExtResource( 8 )]
 position = Vector2( 1056, 224 )
 
-[node name="Temp-Bush11" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="33" instance=ExtResource( 5 )]
+[node name="Temp-Bush11" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="33" instance=ExtResource( 8 )]
 position = Vector2( 1096, 752 )
 
-[node name="Temp-Bush12" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="34" instance=ExtResource( 5 )]
+[node name="Temp-Bush12" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="34" instance=ExtResource( 8 )]
 position = Vector2( 344, 656 )
 
-[node name="Temp-Bush13" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="35" instance=ExtResource( 5 )]
+[node name="Temp-Bush13" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="35" instance=ExtResource( 8 )]
 position = Vector2( 192, 408 )
 
-[node name="Temp-Bush14" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="36" instance=ExtResource( 5 )]
+[node name="Temp-Bush14" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="36" instance=ExtResource( 8 )]
 position = Vector2( 288, 408 )
 
-[node name="Temp-Bush15" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="37" instance=ExtResource( 5 )]
+[node name="Temp-Bush15" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="37" instance=ExtResource( 8 )]
 position = Vector2( 784, 552 )
 
-[node name="Temp-Bush16" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="38" instance=ExtResource( 5 )]
+[node name="Temp-Bush16" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="38" instance=ExtResource( 8 )]
 position = Vector2( 808, 288 )
 
-[node name="Temp-Bush17" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="39" instance=ExtResource( 5 )]
+[node name="Temp-Bush17" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="39" instance=ExtResource( 8 )]
 position = Vector2( 600, 256 )
 
-[node name="Temp-Bush6" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="40" instance=ExtResource( 5 )]
+[node name="Temp-Bush6" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="40" instance=ExtResource( 8 )]
 position = Vector2( 1000, 664 )
 
-[node name="Temp-Bush7" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="41" instance=ExtResource( 5 )]
+[node name="Temp-Bush7" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="41" instance=ExtResource( 8 )]
 position = Vector2( 128, 688 )
 
-[node name="Temp-Bush8" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="42" instance=ExtResource( 5 )]
+[node name="Temp-Bush8" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="42" instance=ExtResource( 8 )]
 position = Vector2( 112, 312 )
 
-[node name="Temp-Bush9" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="43" instance=ExtResource( 5 )]
+[node name="Temp-Bush9" parent="RoomGenerator/BranchForRooms/StartingRoom/ForMemberBranch" index="43" instance=ExtResource( 8 )]
 position = Vector2( 704, 712 )
 
-[node name="StartingRoom2" parent="RoomGenerator/BranchForRooms" instance=ExtResource( 2 )]
+[node name="StartingRoom2" parent="RoomGenerator/BranchForRooms" instance=ExtResource( 9 )]
 position = Vector2( 0, -768 )
 available_nodes = {
 0: 1,
@@ -247,90 +244,90 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="CollisionShape2D" parent="RoomGenerator/BranchForRooms/StartingRoom2" index="1"]
 shape = SubResource( 4 )
 
-[node name="Temp-Tree" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="0" instance=ExtResource( 6 )]
+[node name="Temp-Tree" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="0" instance=ExtResource( 10 )]
 position = Vector2( 776, 48 )
 
-[node name="Temp-Tree2" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="1" instance=ExtResource( 6 )]
+[node name="Temp-Tree2" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="1" instance=ExtResource( 10 )]
 position = Vector2( 1112, 392 )
 
-[node name="Temp-Tree3" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="2" instance=ExtResource( 6 )]
+[node name="Temp-Tree3" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="2" instance=ExtResource( 10 )]
 position = Vector2( 32, 384 )
 
-[node name="Temp-Tree4" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="3" instance=ExtResource( 6 )]
+[node name="Temp-Tree4" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="3" instance=ExtResource( 10 )]
 position = Vector2( 416, 400 )
 
-[node name="Temp-Tree5" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="4" instance=ExtResource( 6 )]
+[node name="Temp-Tree5" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="4" instance=ExtResource( 10 )]
 position = Vector2( 544, 688 )
 
-[node name="Temp-Tree6" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="5" instance=ExtResource( 6 )]
+[node name="Temp-Tree6" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="5" instance=ExtResource( 10 )]
 position = Vector2( 824, 584 )
 
-[node name="Temp-Tree7" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="6" instance=ExtResource( 6 )]
+[node name="Temp-Tree7" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="6" instance=ExtResource( 10 )]
 position = Vector2( 1032, 704 )
 
-[node name="Temp-Tree8" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="7" instance=ExtResource( 6 )]
+[node name="Temp-Tree8" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="7" instance=ExtResource( 10 )]
 position = Vector2( 896, 288 )
 
-[node name="Temp-Tree9" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="8" instance=ExtResource( 6 )]
+[node name="Temp-Tree9" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="8" instance=ExtResource( 10 )]
 position = Vector2( 1024, 104 )
 
-[node name="Temp-Tree10" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="9" instance=ExtResource( 6 )]
+[node name="Temp-Tree10" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="9" instance=ExtResource( 10 )]
 position = Vector2( 544, 208 )
 
-[node name="Temp-Tree11" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="10" instance=ExtResource( 6 )]
+[node name="Temp-Tree11" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="10" instance=ExtResource( 10 )]
 position = Vector2( 232, 128 )
 
-[node name="Temp-Tree12" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="11" instance=ExtResource( 6 )]
+[node name="Temp-Tree12" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="11" instance=ExtResource( 10 )]
 position = Vector2( 184, 280 )
 
-[node name="Temp-Tree13" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="12" instance=ExtResource( 6 )]
+[node name="Temp-Tree13" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="12" instance=ExtResource( 10 )]
 position = Vector2( 128, 520 )
 
-[node name="Temp-Tree14" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="13" instance=ExtResource( 6 )]
+[node name="Temp-Tree14" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="13" instance=ExtResource( 10 )]
 position = Vector2( 248, 688 )
 
-[node name="Temp-Tree15" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="14" instance=ExtResource( 6 )]
+[node name="Temp-Tree15" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="14" instance=ExtResource( 10 )]
 position = Vector2( 104, 704 )
 
-[node name="Temp-Bush" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="15" instance=ExtResource( 5 )]
+[node name="Temp-Bush" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="15" instance=ExtResource( 8 )]
 position = Vector2( 392, 264 )
 
-[node name="Temp-Bush2" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="16" instance=ExtResource( 5 )]
+[node name="Temp-Bush2" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="16" instance=ExtResource( 8 )]
 position = Vector2( 528, 96 )
 
-[node name="Temp-Bush3" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="17" instance=ExtResource( 5 )]
+[node name="Temp-Bush3" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="17" instance=ExtResource( 8 )]
 position = Vector2( 72, 112 )
 
-[node name="Temp-Bush4" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="18" instance=ExtResource( 5 )]
+[node name="Temp-Bush4" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="18" instance=ExtResource( 8 )]
 position = Vector2( 1032, 216 )
 
-[node name="Temp-Bush5" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="19" instance=ExtResource( 5 )]
+[node name="Temp-Bush5" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="19" instance=ExtResource( 8 )]
 position = Vector2( 1000, 592 )
 
-[node name="Temp-Bush6" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="20" instance=ExtResource( 5 )]
+[node name="Temp-Bush6" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="20" instance=ExtResource( 8 )]
 position = Vector2( 792, 736 )
 
-[node name="Temp-Bush7" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="21" instance=ExtResource( 5 )]
+[node name="Temp-Bush7" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="21" instance=ExtResource( 8 )]
 position = Vector2( 144, 632 )
 
-[node name="Temp-Bush8" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="22" instance=ExtResource( 5 )]
+[node name="Temp-Bush8" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="22" instance=ExtResource( 8 )]
 position = Vector2( 456, 536 )
 
-[node name="Temp-Bush9" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="23" instance=ExtResource( 5 )]
+[node name="Temp-Bush9" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="23" instance=ExtResource( 8 )]
 position = Vector2( 664, 360 )
 
-[node name="Temp-Bush10" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="24" instance=ExtResource( 5 )]
+[node name="Temp-Bush10" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="24" instance=ExtResource( 8 )]
 position = Vector2( 208, 424 )
 
-[node name="Temp-Bush11" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="25" instance=ExtResource( 5 )]
+[node name="Temp-Bush11" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="25" instance=ExtResource( 8 )]
 position = Vector2( 808, 472 )
 
-[node name="Temp-Bush12" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="26" instance=ExtResource( 5 )]
+[node name="Temp-Bush12" parent="RoomGenerator/BranchForRooms/StartingRoom2/ForMemberBranch" index="26" instance=ExtResource( 8 )]
 position = Vector2( 376, 776 )
 
 [node name="BranchForMembers" type="YSort" parent="RoomGenerator"]
 
-[node name="Player" parent="RoomGenerator/BranchForMembers" instance=ExtResource( 3 )]
+[node name="Player" parent="RoomGenerator/BranchForMembers" instance=ExtResource( 5 )]
 position = Vector2( 576, 384 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="RoomGenerator"]
@@ -344,7 +341,7 @@ margin_left = -584.32
 margin_top = -403.5
 margin_right = 584.32
 margin_bottom = 403.5
-script = ExtResource( 8 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -361,7 +358,7 @@ margin_bottom = 224.0
 rect_min_size = Vector2( 600, 200 )
 alignment = 2
 
-[node name="Compass" parent="RoomGenerator/CanvasLayer/HUD/CompassCont" instance=ExtResource( 7 )]
+[node name="Compass" parent="RoomGenerator/CanvasLayer/HUD/CompassCont" instance=ExtResource( 3 )]
 margin_left = 1114.0
 margin_right = 1114.0
 margin_bottom = 200.0
@@ -389,7 +386,7 @@ visible = false
 margin_left = 547.0
 margin_right = 620.0
 margin_bottom = 65.0
-texture = ExtResource( 9 )
+texture = ExtResource( 2 )
 
 [node name="1" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
@@ -414,12 +411,6 @@ margin_right = 739.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
-
-[node name="Ambience" parent="." instance=ExtResource( 10 )]
-
-[node name="Music" parent="." instance=ExtResource( 11 )]
-
-[node name="MainMenu" parent="." instance=ExtResource( 12 )]
 [connection signal="resized" from="RoomGenerator/CanvasLayer/HUD" to="RoomGenerator/CanvasLayer/HUD" method="_on_HUD_resized"]
 
 [editable path="RoomGenerator/BranchForRooms/StartingRoom"]

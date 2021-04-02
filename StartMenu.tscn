@@ -1,0 +1,535 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UI/MainMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Plant/Temp-Tree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Temp_tileset.png" type="Texture" id=4]
+[ext_resource path="res://Wildlife/Animal.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="TileSet" id=3]
+resource_local_to_scene = true
+0/name = "Temp_tileset.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 64, 64 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Temp_tileset.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 0, 64, 64 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 64, 64 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [ Vector2( 0, 0 ), SubResource( 2 ) ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "Temp_tileset.png 2"
+2/texture = ExtResource( 4 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 128, 0, 64, 64 )
+2/tile_mode = 2
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 64, 64 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 576, 384 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 23.9501, 1171.14 )
+
+[node name="StartMenu" type="Node2D"]
+
+[node name="MainMenu" parent="." instance=ExtResource( 1 )]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Room" parent="Background" instance=ExtResource( 2 )]
+
+[node name="TileMap" parent="Background/Room" index="0"]
+tile_set = SubResource( 3 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 1, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 1, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 1, 0, 65547, 1, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 0, 0, 65557, 0, 0, 65558, 1, 0, 131072, 0, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 0, 0, 131081, 0, 0, 131082, 1, 0, 131083, 0, 0, 131084, 0, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 0, 0, 131090, 0, 0, 131091, 1, 0, 131092, 1, 0, 131093, 0, 0, 131094, 1, 0, 196608, 0, 0, 196609, 1, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 0, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 0, 0, 196622, 0, 0, 196623, 1, 0, 196624, 1, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 262144, 0, 0, 262145, 0, 0, 262146, 1, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 1, 0, 262162, 1, 0, 262163, 1, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 327680, 0, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 0, 0, 327685, 1, 0, 327686, 0, 0, 327687, 0, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 0, 0, 327692, 0, 0, 327693, 1, 0, 327694, 1, 0, 327695, 0, 0, 327696, 0, 0, 327697, 1, 0, 327698, 1, 0, 327699, 1, 0, 327700, 1, 0, 327701, 1, 0, 327702, 0, 0, 393216, 0, 0, 393217, 1, 0, 393218, 0, 0, 393219, 1, 0, 393220, 0, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 0, 0, 393233, 0, 0, 393234, 1, 0, 393235, 0, 0, 393236, 0, 0, 393237, 1, 0, 393238, 1, 0, 458752, 0, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 0, 0, 458766, 0, 0, 458767, 1, 0, 458768, 1, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 1, 0, 458774, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 0, 0, 524294, 0, 0, 524295, 1, 0, 524296, 1, 0, 524297, 0, 0, 524298, 0, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 0, 0, 524303, 0, 0, 524304, 1, 0, 524305, 1, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 589824, 0, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 1, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 0, 0, 589840, 0, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 0, 0, 655382, 0, 0, 720896, 1, 0, 720897, 0, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 0, 0, 720902, 1, 0, 720903, 0, 0, 720904, 1, 0, 720905, 1, 0, 720906, 0, 0, 720907, 0, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 0, 0, 720917, 1, 0, 720918, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 1, 0, 786437, 0, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 851968, 0, 0, 851969, 1, 0, 851970, 0, 0, 851971, 1, 0, 851972, 1, 0, 851973, 0, 0, 851974, 1, 0, 851975, 1, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 1, 0, 851980, 1, 0, 851981, 0, 0, 851982, 1, 0, 851983, 0, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 1, 0, 917504, 1, 0, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0, 917508, 1, 0, 917509, 0, 0, 917510, 0, 0, 917511, 1, 0, 917512, 1, 0, 917513, 0, 0, 917514, 1, 0, 917515, 1, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 1, 0, 917522, 1, 0, 917523, 1, 0, 917524, 0, 0, 917525, 1, 0, 917526, 1, 0, 983040, 0, 0, 983041, 1, 0, 983042, 0, 0, 983043, 0, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 0, 0, 983051, 1, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 1, 0, 983056, 1, 0, 983057, 0, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 0, 0, 983062, 1, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 1, 0, 1048584, 0, 0, 1048585, 1, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 1, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 1, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0 )
+
+[node name="CollisionShape2D" parent="Background/Room" index="1"]
+shape = SubResource( 4 )
+
+[node name="Objects" type="Node2D" parent="Background"]
+
+[node name="Trees" type="YSort" parent="Background/Objects"]
+
+[node name="Temp-Tree" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 837.333, 248 )
+
+[node name="Temp-Tree25" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 580.755, 281.26 )
+
+[node name="Temp-Tree26" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 498.792, 270.569 )
+
+[node name="Temp-Tree27" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 623.518, 226.618 )
+
+[node name="Temp-Tree28" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 533.24, 206.425 )
+
+[node name="Temp-Tree29" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 731.613, 213.552 )
+
+[node name="Temp-Tree30" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 650.838, 411.925 )
+
+[node name="Temp-Tree31" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 644.899, 512.894 )
+
+[node name="Temp-Tree32" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 767.249, 616.238 )
+
+[node name="Temp-Tree33" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 864.654, 719.582 )
+
+[node name="Temp-Tree34" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 957.308, 792.042 )
+
+[node name="Temp-Tree35" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1079.66, 914.392 )
+
+[node name="Temp-Tree36" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1210.32, 904.889 )
+
+[node name="Temp-Tree37" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1253.09, 1024.86 )
+
+[node name="Temp-Tree38" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1207.66, 1140.09 )
+
+[node name="Temp-Tree39" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1055.61, 1153.15 )
+
+[node name="Temp-Tree40" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 909.504, 1174.53 )
+
+[node name="Temp-Tree41" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 604, 1123.51 )
+
+[node name="Temp-Tree42" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 413.942, 1167.46 )
+
+[node name="Temp-Tree43" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 272.586, 1181.71 )
+
+[node name="Temp-Tree44" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 140.733, 1143.7 )
+
+[node name="Temp-Tree45" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 150.235, 741.013 )
+
+[node name="Temp-Tree46" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 141.92, 415.538 )
+
+[node name="Temp-Tree47" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 76.5878, 188.656 )
+
+[node name="Temp-Tree48" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 239.325, 186.28 )
+
+[node name="Temp-Tree49" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 441.262, 143.517 )
+
+[node name="Temp-Tree50" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 782.18, 160.147 )
+
+[node name="Temp-Tree51" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 960.359, 154.208 )
+
+[node name="Temp-Tree52" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1034.01, 259.928 )
+
+[node name="Temp-Tree53" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1291.77, 283.685 )
+
+[node name="Temp-Tree54" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1474.7, 531.949 )
+
+[node name="Temp-Tree55" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1383.24, 634.105 )
+
+[node name="Temp-Tree56" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1511.53, 923.944 )
+
+[node name="Temp-Tree2" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 391.884, 382.229 )
+
+[node name="Temp-Tree3" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 558.185, 698.201 )
+
+[node name="Temp-Tree4" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1104.6, 529.524 )
+
+[node name="Temp-Tree5" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 711.42, 932.21 )
+
+[node name="Temp-Tree6" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 931.175, 402.422 )
+
+[node name="Temp-Tree7" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 192.323, 713.643 )
+
+[node name="Temp-Tree8" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 517.798, 944.089 )
+
+[node name="Temp-Tree9" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 271.91, 890.635 )
+
+[node name="Temp-Tree10" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1255.46, 315.708 )
+
+[node name="Temp-Tree11" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1295.85, 803.921 )
+
+[node name="Temp-Tree12" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 883.66, 1079.51 )
+
+[node name="Temp-Tree13" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 724.486, 308.581 )
+
+[node name="Temp-Tree14" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 279.037, 442.81 )
+
+[node name="Temp-Tree15" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 445.338, 758.782 )
+
+[node name="Temp-Tree16" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 991.756, 590.105 )
+
+[node name="Temp-Tree17" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 598.573, 992.791 )
+
+[node name="Temp-Tree18" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 818.328, 463.004 )
+
+[node name="Temp-Tree19" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 79.4756, 774.224 )
+
+[node name="Temp-Tree20" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 404.951, 1004.67 )
+
+[node name="Temp-Tree21" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 159.063, 951.216 )
+
+[node name="Temp-Tree22" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1142.61, 376.289 )
+
+[node name="Temp-Tree23" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 1183, 864.502 )
+
+[node name="Temp-Tree24" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
+position = Vector2( 770.813, 1140.09 )
+
+[node name="Birds" type="YSort" parent="Background/Objects"]
+
+[node name="Animal" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal2" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal3" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal4" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal5" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal6" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal7" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal8" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal9" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal10" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal11" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal12" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal13" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal14" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal15" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal16" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal17" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal18" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal19" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal20" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal21" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal22" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal23" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal24" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal25" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal26" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal27" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal28" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal29" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal30" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 0.00012207, 1141.54 )
+
+[node name="Animal31" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal32" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal33" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal34" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal35" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal36" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal37" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal38" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal39" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal40" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal41" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal42" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal43" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal44" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal45" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal46" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal47" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal48" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal49" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal50" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal51" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal52" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal53" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal54" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal55" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal56" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal57" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal58" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal59" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal60" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal61" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal62" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal63" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal64" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal65" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal66" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal67" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal68" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal69" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal70" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal71" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Animal72" parent="Background/Objects/Birds" instance=ExtResource( 5 )]
+position = Vector2( 1437.32, 1129.66 )
+
+[node name="Wall" type="Area2D" parent="Background/Objects"]
+position = Vector2( -213.816, 574.927 )
+collision_layer = 16
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Objects/Wall"]
+shape = SubResource( 5 )
+
+[node name="Wall2" type="Area2D" parent="Background/Objects"]
+position = Vector2( 1722.59, 569.587 )
+collision_layer = 16
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Objects/Wall2"]
+shape = SubResource( 5 )
+
+[node name="Wall3" type="Area2D" parent="Background/Objects"]
+position = Vector2( 747.269, -355.902 )
+rotation = -1.5671
+collision_layer = 16
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Objects/Wall3"]
+shape = SubResource( 5 )
+
+[node name="Wall4" type="Area2D" parent="Background/Objects"]
+position = Vector2( 830.919, 1390.07 )
+rotation = -1.5671
+collision_layer = 16
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Objects/Wall4"]
+shape = SubResource( 5 )
+
+[editable path="Background/Room"]
