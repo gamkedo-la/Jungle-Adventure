@@ -3,7 +3,7 @@ extends Node
 export (Array, Vector2) var mix_at_distance
 
 var leaving: bool = false
-var fade_speed = 40
+var fade_speed = 24
 var target_explore_db = 0
 var target_newroom_db = -40
 var target_found_db = -40
