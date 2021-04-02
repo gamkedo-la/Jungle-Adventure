@@ -194,10 +194,10 @@ position = Vector2( 441.262, 143.517 )
 position = Vector2( 782.18, 160.147 )
 
 [node name="Temp-Tree51" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
-position = Vector2( 960.359, 154.208 )
+position = Vector2( 515.385, 454.036 )
 
 [node name="Temp-Tree52" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
-position = Vector2( 1034.01, 259.928 )
+position = Vector2( 1026.59, 213.312 )
 
 [node name="Temp-Tree53" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
 position = Vector2( 1291.77, 283.685 )
@@ -224,7 +224,7 @@ position = Vector2( 1104.6, 529.524 )
 position = Vector2( 711.42, 932.21 )
 
 [node name="Temp-Tree6" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
-position = Vector2( 931.175, 402.422 )
+position = Vector2( 957.662, 348.389 )
 
 [node name="Temp-Tree7" parent="Background/Objects/Trees" instance=ExtResource( 3 )]
 position = Vector2( 192.323, 713.643 )

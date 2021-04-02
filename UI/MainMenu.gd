@@ -33,7 +33,7 @@ func _ready():
 	#update_volume()
 	
 	
-func _process(delta):
+func _process(_delta):
 	#animate_background()
 	if Input.is_action_just_pressed("ui_pause"):
 		#TODO: Do something smarter here, in case 'unsaved' settings

@@ -40,6 +40,7 @@ func _ready():
 
 func player_here(player_position:Vector2):
 	_room_with_player = player_position
+	Global.room_with_player = _room_with_player
 	if _room_with_player.round() == _current_landmark.round():
 		HUD.record_landmark(_landmark_index)
 		_place_landmark()
@@ -100,10 +101,11 @@ func _place_landmark(runs = 3):
 		_add_room(_landmark_location, _landmarks.get_child(_landmark_index))
 		_landmark_index = _landmark_index + 1
 		_current_landmark = _landmark_location
+		Global.current_landmark = _current_landmark
 		if _landmark_index >= _landmarks.get_child_count():
 			_landmark_index = 0
-		var compass_x = x * ROOM_WIDTH_PX + ROOM_WIDTH_PX/2.0
-		var compass_y = y * ROOM_HEIGHT_PX + ROOM_HEIGHT_PX/2.0
+		var compass_x = _landmark_location.x * ROOM_WIDTH_PX + ROOM_WIDTH_PX/2.0
+		var compass_y = _landmark_location.y * ROOM_HEIGHT_PX + ROOM_HEIGHT_PX/2.0
 		compass.SetNorthPosition(Vector2(compass_x, compass_y))
 	else:
 		_place_landmark((runs - 1))

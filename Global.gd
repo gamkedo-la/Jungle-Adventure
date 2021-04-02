@@ -11,6 +11,10 @@ var game_live = false
 var game_music = null
 var game_ambience = null
 
+var room_with_player = Vector2.ZERO
+var current_landmark = Vector2.INF
+var player_position = Vector2.ZERO
+
 
 func _ready():
 	var root = get_tree().get_root()

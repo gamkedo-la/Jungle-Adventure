@@ -5,7 +5,7 @@ extends Container
 # They will also be available for editing in the property editor.
 # https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_exports.html
 export(Vector2) var NorthPosition = Vector2.ZERO  # The compass points at this position aka North
-export var PointAtMouse = false # Mainly for debugging
+var PlayerPosition = Vector2.ZERO
 
 # onready var my_label = get_node("MyLabel") 
 # A scene's subnodes can't be accessed until _ready() is entered. The onready keyword, defers variable initialization until _ready() is called.
@@ -18,12 +18,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var pointAt = NorthPosition
-	if(PointAtMouse):
-		pointAt = get_global_mouse_position();
-	
+	PlayerPosition = Global.player_position
+		
 	# Do some math to recalculate the Pointer orientation
-	Needle.rotate(Needle.get_angle_to(pointAt) + PI / 2)
+	Needle.rotation = Global.player_position.angle_to_point(NorthPosition) - 1.570796
 	
 # Not sure what I've done wrong declaring these param
 #func SetNorthPosition(Position2D northPosition):

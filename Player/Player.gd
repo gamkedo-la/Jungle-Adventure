@@ -18,7 +18,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _process(delta):
-	
+	Global.player_position = position
 	match state:
 		MOVE:
 			state_move(delta)
