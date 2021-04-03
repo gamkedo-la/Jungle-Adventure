@@ -32,7 +32,7 @@ func _on_Area2D_area_entered(_area):
 		#Depending on plant type, we will use a cut animation or another
 		if "Bush" in name:
 			animationPlayer.play("Grow")
-			#If we wanted to have the bush hit animation - removed as it mismatches sound
+			#If we wanted to have the bush hit animation - removed as it mismatches sound.
 			#animationPlayer.play("Hit Lv1")
 			#animationPlayer.queue("Grow")
 			audioStreamPlayer.stream = sfxChop
