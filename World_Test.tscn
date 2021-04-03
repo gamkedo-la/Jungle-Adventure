@@ -379,30 +379,34 @@ rect_min_size = Vector2( 0, 500 )
 [node name="LandmarkContainer" type="HBoxContainer" parent="RoomGenerator/CanvasLayer/HUD"]
 margin_top = 732.0
 margin_right = 1168.0
-margin_bottom = 807.0
+margin_bottom = 732.0
 alignment = 1
 
 [node name="0" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
-margin_left = 437.0
-margin_right = 510.0
-margin_bottom = 75.0
+visible = false
+margin_left = 547.0
+margin_right = 620.0
+margin_bottom = 65.0
 texture = ExtResource( 2 )
 
 [node name="1" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
-margin_left = 514.0
-margin_right = 589.0
+visible = false
+margin_left = 585.0
+margin_right = 660.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
 
 [node name="2" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
-margin_left = 593.0
-margin_right = 668.0
+visible = false
+margin_left = 624.0
+margin_right = 699.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
 color = Color( 0, 0, 0, 0.337255 )
 
 [node name="3" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+visible = false
 margin_left = 672.0
 margin_right = 731.0
 margin_bottom = 75.0
