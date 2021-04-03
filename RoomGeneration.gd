@@ -106,6 +106,8 @@ func _place_landmark(runs = 3):
 			_landmark_index = 0
 		var compass_x = _landmark_location.x * ROOM_WIDTH_PX + ROOM_WIDTH_PX/2.0
 		var compass_y = _landmark_location.y * ROOM_HEIGHT_PX + ROOM_HEIGHT_PX/2.0
+		if _landmark_index != 1:
+			yield(get_tree().create_timer(5.0), "timeout")
 		compass.SetNorthPosition(Vector2(compass_x, compass_y))
 	else:
 		_place_landmark((runs - 1))
