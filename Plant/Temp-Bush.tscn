@@ -65,7 +65,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Hit Lv1"
+resource_name = "Hit 1"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -124,7 +124,7 @@ frame = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 anims/Grow = SubResource( 3 )
-"anims/Hit Lv1" = SubResource( 4 )
+"anims/Hit 1" = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
