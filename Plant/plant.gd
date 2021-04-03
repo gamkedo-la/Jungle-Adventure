@@ -1,10 +1,10 @@
 extends StaticBody2D
 
-export (int) var maxHP = 1
 export (AudioStreamRandomPitch) var sfxChop
 export (AudioStreamRandomPitch) var sfxHit
 
-var hp = maxHP
+var hp
+var hitCount
 
 onready var collisionShape = $CollisionShape2D
 onready var sprite = $Sprite
@@ -12,19 +12,34 @@ onready var animationPlayer = $AnimationPlayer
 onready var audioStreamPlayer = $AudioStreamPlayer2D
 
 func _ready():
-	hp = maxHP
+	hitCount = 0
+	if "Tree" in name:
+		hp = 4
+	else:
+		hp= 1
 	
-func add_hp(to_add: int):
-	hp = clamp(to_add + hp, 0, maxHP)
-
 func _on_Area2D_area_entered(_area):
 	if hp <= 0:
 		return
 	hp -= 1
+	hitCount += 1
+	#Var printing for testing purposes
+	#print("Hit number: " + str(hitCount))
+	#print(name + "current HP: " + str(hp))
+	animationPlayer.play("Hit " + str(hitCount))
+	animationPlayer.queue("Idle Lv"+str(hp))
 	if hp <= 0:
-		animationPlayer.stop()
-		animationPlayer.play("Grow")
-		audioStreamPlayer.stream = sfxChop
+		#Depending on plant type, we will use a cut animation or another
+		if "Bush" in name:
+			animationPlayer.play("Grow")
+			#If we wanted to have the bush hit animation - removed as it mismatches sound.
+			#animationPlayer.play("Hit Lv1")
+			#animationPlayer.queue("Grow")
+			audioStreamPlayer.stream = sfxChop
+		else:
+			animationPlayer.play("Hit 4")
+			animationPlayer.queue("Grow")
+			audioStreamPlayer.stream = sfxChop
 	else :
 		audioStreamPlayer.stream = sfxHit
 	audioStreamPlayer.play()
