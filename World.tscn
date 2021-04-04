@@ -365,7 +365,8 @@ alignment = 2
 margin_left = 1114.0
 margin_right = 1114.0
 margin_bottom = 200.0
-wiggleRange = 0.01
+WiggleRange = 0.1
+WiggleDelaySecondsRange = 0.4
 
 [node name="HSpacer" type="Control" parent="RoomGenerator/CanvasLayer/HUD/CompassCont"]
 margin_left = 1118.0
