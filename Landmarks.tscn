@@ -331,9 +331,10 @@ position = Vector2( 750.1, 69.9245 )
 scale = Vector2( 2.5, 2.3 )
 texture = ExtResource( 6 )
 hframes = 6
-frame = 4
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="3/ForMemberBranch/Ship"]
+autoplay = "Idle"
 anims/Idle = SubResource( 5 )
 
 [node name="Particles2D" parent="3/ForMemberBranch/Ship" instance=ExtResource( 7 )]
