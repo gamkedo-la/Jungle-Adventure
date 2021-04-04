@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Temp_tileset.png" type="Texture" id=2]
 [ext_resource path="res://Landmarks/BurpingClam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Plant/Temp-Bush.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Plant/Temp-Tree.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Landmarks/PirateShip/pirate-ship.png" type="Texture" id=6]
+[ext_resource path="res://Landmarks/PirateShip/pirate-ship-anim.png" type="Texture" id=6]
 [ext_resource path="res://Effects/Bubbles.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -92,19 +92,36 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 extents = Vector2( 576, 384 )
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+length = 3.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.1, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Gradient" id=6]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.00392157 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=8]
 _data = [ Vector2( 0.00757576, 0.0818182 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.322727 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 2
 emission_box_extents = Vector3( 1.16, 1, 1 )
 flag_disable_z = true
@@ -116,10 +133,10 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 angle = 252.0
 scale_random = 0.61
-scale_curve = SubResource( 8 )
-color_ramp = SubResource( 6 )
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 154.503, 74.6476 )
 
 [node name="Landmarks" type="Node2D"]
@@ -142,7 +159,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 shape = SubResource( 4 )
 
 [node name="BurpingClam" parent="0/ForMemberBranch" index="0" instance=ExtResource( 3 )]
-position = Vector2( 609.072, 272.901 )
+position = Vector2( 574.149, 355.446 )
 
 [node name="Temp-Tree" parent="0/ForMemberBranch" index="1" instance=ExtResource( 5 )]
 position = Vector2( 163.79, 617.361 )
@@ -313,17 +330,22 @@ amount = 30
 position = Vector2( 750.1, 69.9245 )
 scale = Vector2( 2.5, 2.3 )
 texture = ExtResource( 6 )
+hframes = 6
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="3/ForMemberBranch/Ship"]
+anims/Idle = SubResource( 5 )
 
 [node name="Particles2D" parent="3/ForMemberBranch/Ship" instance=ExtResource( 7 )]
 position = Vector2( 887.83, 286.055 )
 amount = 1
-process_material = SubResource( 9 )
+process_material = SubResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="3/ForMemberBranch/Ship"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="3/ForMemberBranch/Ship/StaticBody2D"]
 position = Vector2( 755.722, 264.451 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Temp-Tree" parent="3/ForMemberBranch" index="1" instance=ExtResource( 5 )]
 position = Vector2( 1068.47, 609.743 )

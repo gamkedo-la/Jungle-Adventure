@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Landmarks/burpingclam.png" type="Texture" id=1]
 [ext_resource path="res://Landmarks/BurpingClam.gd" type="Script" id=2]
@@ -147,6 +147,10 @@ tracks/8/keys = {
 "values": [ 1.0, 0.5 ]
 }
 
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 52.5667
+height = 74.9885
+
 [node name="BurpingClam" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -157,6 +161,7 @@ hframes = 20
 frame = 9
 
 [node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, -81.1732 )
 texture = ExtResource( 4 )
 hframes = 6
 frame = 1
@@ -167,7 +172,7 @@ method_call_mode = 1
 anims/onc = SubResource( 2 )
 
 [node name="ClamBubbles" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9.12205, -40.2715 )
+position = Vector2( 9.12205, -121.445 )
 emitting = false
 amount = 500
 lifetime = 4.43809
@@ -175,13 +180,21 @@ speed_scale = 0.655773
 explosiveness = 0.666628
 
 [node name="ClamBubblesL" parent="." instance=ExtResource( 3 )]
-position = Vector2( -118.953, 10.0816 )
+position = Vector2( -118.953, -71.0916 )
 scale = Vector2( 0.75, 1 )
 emitting = false
 amount = 200
 
 [node name="ClamBubblesR" parent="." instance=ExtResource( 3 )]
-position = Vector2( 100.037, 35.5227 )
+position = Vector2( 100.037, -45.6505 )
 scale = Vector2( 0.65, 0.65 )
 emitting = false
 amount = 200
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, -81.1732 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.943878, 50.0253 )
+rotation = 1.5708
+shape = SubResource( 3 )
