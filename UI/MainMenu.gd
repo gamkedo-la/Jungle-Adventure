@@ -8,6 +8,7 @@ onready var dimensions = get_viewport_rect().size
 onready var main_menu = $MenuCanvas/MenuRoot
 onready var new_button = $MenuCanvas/MenuRoot/buttonsvb/playhb/play
 onready var options = $MenuCanvas/OptionsContainer
+onready var credits = $MenuCanvas/CreditsContainer
 onready var return_to_game = $MenuCanvas/MenuRoot/buttonsvb/credhb3/return
 
 onready var mast_vol_slider = $MenuCanvas/OptionsContainer/Options/Tabs/Audio/AudioVbox/mvol/mast_volume_slider
@@ -18,6 +19,7 @@ onready var sfx_vol_slider = $MenuCanvas/OptionsContainer/Options/Tabs/Audio/Aud
 
 func _ready():
 	options.visible = false
+	credits.visible = false
 	main_menu.visible = true
 	Global.menu_open = true
 	if !Global.game_live:
@@ -66,6 +68,9 @@ func _on_options_pressed():
 	main_menu.visible = false
 	options.visible = true
 
+func _on_credits_pressed():
+	main_menu.visible = false
+	credits.visible = true
 
 func _on_mast_volume_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(value))
@@ -90,6 +95,9 @@ func _on_OptsReturn_pressed():
 	options.visible = false
 	main_menu.visible = true
 
+func _on_CredReturn_pressed():
+	credits.visible = false
+	main_menu.visible = true
 
 func _on_play_pressed():
 	Global.goto_scene("res://World_Test.tscn")

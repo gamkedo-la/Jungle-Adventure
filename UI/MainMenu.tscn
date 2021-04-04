@@ -218,6 +218,46 @@ margin_left = 196.0
 margin_right = 342.0
 margin_bottom = 20.0
 text = "Return to Main Menu"
+
+[node name="CreditsContainer" type="VBoxContainer" parent="MenuCanvas"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_right = 248.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="VBoxContainer" parent="MenuCanvas/CreditsContainer"]
+margin_right = 538.0
+margin_bottom = 24.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/CreditsContainer/Credits"]
+margin_right = 538.0
+margin_bottom = 400.0
+text = "Michael \"Misha\" Fewkes: Project lead, core gameplay, map generation, room layouts, collisions, tree and bush placement, landmark system, audio implementation, assorted asset integration, music system, ambient transitions
+Himar Gil Hernandez: Player sprite with animations, buddha landmark, tilesets (undergrowth , dirt), slim tree art, axonometric template, tree damage states, bush animations
+Kyle Black: Burping clam animation, landmark UI, locations visited HUD
+Andrew Hind: Music (main ambience, underwater), tree hit sound, pause and title menus
+MrPhil (Philip Ludington): Compass feature, fixed audio import issue, additional animation integration
+Derek Miranda: Objects become transparent when blocking player, compass rotation fix, sound loop fix, pirate ship landmark art and related aniamtion
+Tyler Pelaez: Pixel snap for flickering reduction, boid-based bird AI, parrot art
+Kornel: Bubble effect, bush hit and chop sounds
+Fahad Muntaz: Parrot sounds
+Chris DeLeon: Compiled credits"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/CreditsContainer/Credits"]
+margin_top = 300.0
+margin_right = 538.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="CredReturn" type="Button" parent="MenuCanvas/CreditsContainer/Credits/HBoxContainer"]
+margin_left = 196.0
+margin_right = 342.0
+margin_bottom = 20.0
+text = "Return to Main Menu"
 [connection signal="pressed" from="MenuCanvas/MenuRoot/buttonsvb/playhb/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MenuCanvas/MenuRoot/buttonsvb/opthb/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MenuCanvas/MenuRoot/buttonsvb/credhb3/return" to="." method="_on_return_pressed"]
@@ -226,3 +266,4 @@ text = "Return to Main Menu"
 [connection signal="value_changed" from="MenuCanvas/OptionsContainer/Options/Tabs/Audio/AudioVbox/ambvol/amb_volume_slider" to="." method="_on_amb_volume_slider_value_changed"]
 [connection signal="value_changed" from="MenuCanvas/OptionsContainer/Options/Tabs/Audio/AudioVbox/sfxvol/sfx_volume_slider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="MenuCanvas/OptionsContainer/Options/HBoxContainer/OptsReturn" to="." method="_on_OptsReturn_pressed"]
+[connection signal="pressed" from="MenuCanvas/CreditsContainer/Credits/HBoxContainer/CredReturn" to="." method="_on_OptsReturn_pressed"]
