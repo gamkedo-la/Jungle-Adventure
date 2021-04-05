@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://RoomGeneration.gd" type="Script" id=1]
 [ext_resource path="res://Landmarks/burping_clam_icon.png" type="Texture" id=2]
 [ext_resource path="res://Compass/Compass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Landmarks/PirateShip/pirate-ship_icon.png" type="Texture" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Landmarks/Buddha_icon.png" type="Texture" id=6]
 [ext_resource path="res://Plant/Temp-Bush.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Room.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Plant/Temp-Tree.tscn" type="PackedScene" id=10]
@@ -82,7 +83,6 @@ script = ExtResource( 1 )
 [node name="BranchForRooms" type="YSort" parent="RoomGenerator"]
 
 [node name="StartingRoom" parent="RoomGenerator/BranchForRooms" instance=ExtResource( 9 )]
-permanent = true
 available_nodes = {
 0: 0,
 1: 1,
@@ -389,26 +389,18 @@ margin_right = 620.0
 margin_bottom = 65.0
 texture = ExtResource( 2 )
 
-[node name="1" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+[node name="1" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
 margin_left = 585.0
 margin_right = 660.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 75, 75 )
-color = Color( 0, 0, 0, 0.337255 )
+texture = ExtResource( 6 )
 
-[node name="2" type="ColorRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
+[node name="2" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
 visible = false
-margin_left = 624.0
-margin_right = 699.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-color = Color( 0, 0, 0, 0.337255 )
-
-[node name="3" type="TextureRect" parent="RoomGenerator/CanvasLayer/HUD/LandmarkContainer"]
-visible = false
-margin_left = 672.0
-margin_right = 731.0
+margin_left = 632.0
+margin_right = 691.0
 margin_bottom = 75.0
 texture = ExtResource( 4 )
 [connection signal="resized" from="RoomGenerator/CanvasLayer/HUD" to="RoomGenerator/CanvasLayer/HUD" method="_on_HUD_resized"]
