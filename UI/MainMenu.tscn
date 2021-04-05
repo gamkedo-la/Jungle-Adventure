@@ -234,12 +234,12 @@ __meta__ = {
 
 [node name="Credits" type="VBoxContainer" parent="MenuCanvas/CreditsContainer"]
 margin_right = 900.0
-margin_bottom = 568.0
+margin_bottom = 584.0
 theme = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/CreditsContainer/Credits"]
 margin_right = 900.0
-margin_bottom = 544.0
+margin_bottom = 560.0
 rect_min_size = Vector2( 0, 300 )
 rect_clip_content = false
 text = "
@@ -248,17 +248,17 @@ text = "
 
 
 
-Michael \"Misha\" Fewkes: Project lead, core gameplay, map generation, room layouts, collisions, tree and bush placement, landmark system, audio implementation, assorted asset integration, music system, ambient transitions
+Michael \"Misha\" Fewkes: Project lead, core gameplay, map generation, room layouts, collisions, tree and bush placement, landmark system, audio implementation, assorted asset integration, music system, ambient transitions, pirate sail movement, end scene
 
-Himar Gil Hernandez: Player sprite with animations, buddha landmark, tilesets (undergrowth , dirt), slim tree art, axonometric template, tree damage states, bush animations
+Himar Gil Hernandez: Player sprite with animations, buddha landmark and related integration, Fish Ed animation, tilesets (undergrowth, dirt), slim tree art, axonometric template, tree damage states, bush animations, sound loop bug fix
 
-Kyle Black: Burping clam animation, landmark UI, locations visited HUD
+Kyle Black: Burping clam animation plus related particles, landmark UI, locations visited HUD, title and in-game pause menus, audio options, improvements to landmark visited logic, pirate ship icon
 
-Andrew Hind: Music (main ambience, underwater), tree hit sound, pause and title menus
+Andrew Hind: Music and ambience (jungle, underwater), tree hit sound
 
-MrPhil (Philip Ludington): Compass feature, fixed audio import issue, additional animation integration
+MrPhil (Philip Ludington): Compass feature and related tuning improvements, fixed audio import issue, additional animation integration
 
-Derek Miranda: Objects become transparent when blocking player, compass rotation fix, sound loop fix, pirate ship landmark art and related aniamtion
+Derek Miranda: Objects become transparent when blocking player, compass rotation fix, sound loop fix, pirate ship landmark art and related animation
 
 Tyler Pelaez: Pixel snap for flickering reduction, boid-based bird AI, parrot art
 
@@ -266,7 +266,7 @@ Kornel: Bubble effect, bush hit and chop sounds
 
 Fahad Muntaz: Parrot sounds
 
-Chris DeLeon: Compiled credits
+Chris DeLeon: Compiled and integrated credits
 
 HomeTeam's first Godot game! Made by members of HomeTeam GameDev Lighthouse - make games with us at HomeTeamGameDev.com
 
@@ -276,9 +276,9 @@ HomeTeam's first Godot game! Made by members of HomeTeam GameDev Lighthouse - ma
 fit_content_height = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/CreditsContainer/Credits"]
-margin_top = 548.0
+margin_top = 564.0
 margin_right = 900.0
-margin_bottom = 568.0
+margin_bottom = 584.0
 alignment = 1
 
 [node name="CredReturn" type="Button" parent="MenuCanvas/CreditsContainer/Credits/HBoxContainer"]
